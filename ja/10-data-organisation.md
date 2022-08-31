@@ -2,7 +2,7 @@
 
 **Question**
 
--   What are basic principles for using spreadsheets for good data organization?
+-   優れたデータ統合用にスプレッドシートを使用するための基本的な原則は何でしょうか？
 
 **Objective**
 
