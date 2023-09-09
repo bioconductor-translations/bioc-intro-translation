@@ -1,3 +1,17 @@
 files:
-  - source: episodes/*.Rmd
-    translation: /episodes/%two_letters_code%/%original_file_name%
+  - source: /episodes/*.Rmd
+    translation: /%two_letters_code%/episodes/%original_file_name%
+  - source: /instructors/*.md
+    translation: /%two_letters_code%/instructors/%original_file_name%
+  - source: /learners/*.md
+    translation: /%two_letters_code%/learners/%original_file_name%
+  - source: /profiles/*.md
+    translation: /%two_letters_code%/profiles/%original_file_name%
+  - source: /CODE_OF_CONDUCT.md
+    translation: /%two_letters_code%/%original_file_name%
+  - source: /LICENSE.md
+    translation: /%two_letters_code%/%original_file_name%
+  - source: /README.md
+    translation: /%two_letters_code%/%original_file_name%
+  - source: /index.md
+    translation: /%two_letters_code%/%original_file_name%
