@@ -8,7 +8,7 @@ title: Setup
 
 ### R and RStudio
 
-- RとRStudioは別々にダウンロード、インストールする。 Rは統計計算の基礎となる環境だが、Rだけを使うのは面白くない。 RStudio はグラフィカルな統合開発環境 (IDE) であり、R の使用をより簡単かつインタラクティブにします。 You need to install R before you install RStudio. After installing both programs, you will need to install some specific R packages within RStudio. Follow the instructions below for your operating system, and then follow the instructions to install packages.
+- RとRStudioは別々にダウンロード、インストールする。 Rは統計計算の基礎となる環境だが、Rだけを使うのは面白くない。 RStudio はグラフィカルな統合開発環境 (IDE) であり、R の使用をより簡単かつインタラクティブにします。 RStudioをインストールする前に、 。 両方の プログラムをインストールした後、 RStudio 内にいくつかの特定の R パッケージをインストールする必要があります。 お使いのオペレーティングシステム、 、以下の指示に従ってパッケージをインストールしてください。
 
 ### You are running Windows
 
@@ -16,9 +16,9 @@ title: Setup
 
 :::::::::::::::  solution
 
-## If you already have R and RStudio installed
+## すでにRとRStudioがインストールされている場合
 
-- Open RStudio, and click on "Help" > "Check for updates". If a new version is available, quit RStudio, and download the latest version for RStudio.
+- RStudio を開き、"Help" > "Check for updates" をクリックします。 If a new version is available, quit RStudio, and download the latest version for RStudio.
 
 - To check which version of R you are using, start RStudio and the first thing that appears in the console indicates the version of R you are running. Alternatively, you can type `sessionInfo()`, which will also display which version of R you are running. Go on the [CRAN website](https://cran.r-project.org/bin/windows/base/) and check whether a more recent version is available. If so, please download and install it. You can [check here](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#How-do-I-UNinstall-R_003f) for more information on how to remove old versions from your system if you wish to do so.
 
@@ -38,13 +38,13 @@ title: Setup
 
 - Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download)
 
-- Under *All Installers* select **RStudio xxxx.yy.zz-uuu.exe - Windows 10/11** (where x, y, z, and u represent version numbers)
+- *All Installers* で **RStudio xxxx.yy.zz-uuu.exe - Windows 10/11** を選択します（x、y、z、u はバージョン番号を表します）。
 
-- Double click the file to install it
+- ファイルをダブルクリックしてインストールする
 
-- Once it's installed, open RStudio to make sure it works and you don't get any error messages
+- インストールが完了したら、RStudioを開いて動作することを確認し、 のエラーメッセージが表示されないことを確認する。
 
-- Follow the steps in the instructions [for everyone](#for-everyone) at the bottom of this page.
+- このページの最下部（ ）にある [for everyone](#for-everyone) の手順に従ってください。
 
 
 ::::::::::::::::::::::
