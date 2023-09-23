@@ -8,7 +8,7 @@ title: Setup
 
 ### R and RStudio
 
-- R and RStudio are separate downloads and installations. R is the underlying statistical computing environment, but using R alone is no fun. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio. After installing both programs, you will need to install some specific R packages within RStudio. Follow the instructions below for your operating system, and then follow the instructions to install packages.
+- RとRStudioは別々にダウンロード、インストールする。 Rは統計計算の基礎となる環境だが、Rだけを使うのは面白くない。 RStudio はグラフィカルな統合開発環境 (IDE) であり、R の使用をより簡単かつインタラクティブにします。 You need to install R before you install RStudio. After installing both programs, you will need to install some specific R packages within RStudio. Follow the instructions below for your operating system, and then follow the instructions to install packages.
 
 ### You are running Windows
 
