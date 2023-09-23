@@ -20,11 +20,11 @@ exercises: 30
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How to organise tabular data?
+- 表形式のデータを整理するには？
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Spreadsheet programs
+## 表計算プログラム
 
 **Question**
 
