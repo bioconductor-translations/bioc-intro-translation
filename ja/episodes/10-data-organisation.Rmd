@@ -28,7 +28,7 @@ exercises: 30
 
 **Question**
 
-- What are basic principles for using spreadsheets for good data
+- 優れたデータ統合用にスプレッドシートを使用するための基本的な原則は何でしょうか？
   organization?
 
 **Objective**
