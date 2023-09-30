@@ -1,6 +1,6 @@
 ---
 source: Rmd
-title: Organización de datos usando hojas de cálculo
+title: Data organisation with spreadsheets
 teaching: 30
 exercises: 30
 ---
@@ -8,9 +8,9 @@ exercises: 30
 ```{r, include=FALSE}
 ```
 
-::::::::::::::::::::::::::::::::::::::: objetivos
+::::::::::::::::::::::::::::::::::::::: objectives
 
-- Aprendiendo sobre hojas de cálculo, sus ventajas y desventajas.
+- Learn about spreadsheets, their strengths and weaknesses.
 - ¿Cómo le damos formato a los datos usando hojas de cálculo para su uso efectivo?
 - Aprendiendo acerca de los errores comunes cometidos en hojas de cálculo y como corregirlos.
 - Organiza tus datos de acuerdo a los principios de ordenamiento de datos (tidy data).
