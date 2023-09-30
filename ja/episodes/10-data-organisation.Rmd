@@ -1,6 +1,6 @@
 ---
 source: Rmd
-title: スプレッドシートによるデータ整理
+title: Data organisation with spreadsheets
 teaching: 30
 exercises: 30
 ---
@@ -8,9 +8,9 @@ exercises: 30
 ```{r, include=FALSE}
 ```
 
-::::::::::::::::::::::::::::::::::::::: 目的
+::::::::::::::::::::::::::::::::::::::: objectives
 
-- スプレッドシートについて、その長所と短所を学ぶ。
+- Learn about spreadsheets, their strengths and weaknesses.
 - 効果的なデータ活用のために、スプレッドシートのデータをどのようにフォーマットするか？
 - スプレッドシートのよくあるエラーとその修正方法について学ぶ。
 - tidy data の原則に従ってデータを整理する。
@@ -20,15 +20,15 @@ exercises: 30
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- 表形式のデータを整理するには？
+- How to organise tabular data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## 表計算プログラム
+## Spreadsheet programs
 
 **Question**
 
-- 優れたデータ統合用にスプレッドシートを使用するための基本的な原則は何でしょうか？
+- What are basic principles for using spreadsheets for good data
   organization?
 
 **Objective**
