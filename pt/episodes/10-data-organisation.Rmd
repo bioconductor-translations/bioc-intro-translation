@@ -43,29 +43,28 @@ Uma boa organização dos dados é a base do seu projeto de pesquisa. A maioria 
 formato de tabela. Programas de análise de tabelas são interfaces
 gráficas muito úteis para projetar dados e lidar com funções e controle de qualidade. Ver também @Broman:2018.
 
-### Spreadsheet outline
+### O perfil da tabela
 
-Spreadsheets are good for data entry. Therefore we have a lot of data
-in spreadsheets.  Much of your time as a researcher will be spent in
-this 'data wrangling' stage.  It's not the most fun, but it's
-necessary. We'll teach you how to think about data organization and
-some practices for more effective data wrangling.
+Tabelas são boas para a inserção de dados. Portanto, temos muitos dados
+em tabelas.  Muito do seu tempo como pesquisador será gasto em
+desembaralhar seus dados e a forma como foram inseridos.  It's not the most fun, but it's
+necessary. Vamos te ensinar como pensar sobre organização de dados e
+algumas práticas para um melhor desembaraço dos dados.
 
-### What this lesson will not teach you
+### O que esta aula não vai te ensinar
 
-- How to do *statistics* in a spreadsheet
-- How to do *plotting* in a spreadsheet
-- How to *write code* in spreadsheet programs
+- Como fazer *estatísticas* em uma tabela
+- Como *plotar figuras* a partir de uma tabela
+- Como *escrever código* em programas de tabela
 
-If you're looking to do this, a good reference is [Head First
-Excel](https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
-published by O'Reilly.
+Se você está procurando fazer isso, uma boa referência é [Head First
+Excel](https://www. mazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
+publicado por O'Reilly.
 
-### Why aren't we teaching data analysis in spreadsheets
+### Por que não podemos ensinar análises de dados em tabelas
 
-- Data analysis in spreadsheets usually requires a lot of manual
-  work. If you want to change a parameter or run an analysis with a
-  new dataset, you usually have to redo everything by hand. (We do
+- Análise de dados em tabelas geralmente requerem muito trabalho manual. Se você alterar um parâmetro ou efetuar uma análise com um
+  novo conjunto de dados, normalmente terá de refazer tudo à mão. (We do
   know that you can create macros, but see the next point.)
 
 - It is also difficult to track or reproduce statistical or plotting
