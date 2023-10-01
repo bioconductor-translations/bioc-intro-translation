@@ -10,11 +10,11 @@ exercícios: 30
 
 ::::::::::::::::::::::::::::::::::::::: objetivos
 
-- Aprenda sobre tabelas, seus pontos fortes e fraquezas.
-- Como formatamos dados em tabelas para o uso eficaz dos dados?
-- Aprenda sobre erros comuns da manipulação de tabelas e como corrigi-los.
+- Aprenda sobre planilhas, seus pontos fortes e fraquezas.
+- Como formatamos dados em planilhas para o uso eficaz dos dados?
+- Aprenda sobre erros comuns da manipulação de planilhas e como corrigi-los.
 - Organize os seus dados de acordo com os princípios *tidy*.
-- Saiba mais sobre os formatos de tabelas, como as tabelas separadas por vírgulas (CSV) ou separadas por tabulações (TSV).
+- Saiba mais sobre os formatos de planilhas, como as planilhas separadas por vírgulas (CSV) ou separadas por tabulações (TSV).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -40,84 +40,84 @@ exercícios: 30
 - Uma boa organização dos dados é a base de qualquer projeto de pesquisa.
 
 Uma boa organização dos dados é a base do seu projeto de pesquisa. A maioria dos pesquisadores tem dados ou faz entrada de dados em
-formato de tabela. Programas de análise de tabelas são interfaces
+formato de planilhas. Programas de análise de tabelas são interfaces
 gráficas muito úteis para projetar dados e lidar com funções e controle de qualidade. Ver também @Broman:2018.
 
 ### O perfil da tabela
 
-Tabelas são boas para a inserção de dados. Portanto, temos muitos dados
-em tabelas.  Muito do seu tempo como pesquisador será gasto em
-desembaralhar seus dados e a forma como foram inseridos.  It's not the most fun, but it's
-necessary. Vamos te ensinar como pensar sobre organização de dados e
+Planilhas são boas para a inserção de dados. Portanto, temos muitos dados
+em planilhas.  Muito do seu tempo como pesquisador será gasto em
+desembaralhar seus dados e a forma como foram inseridos.  Não é o mais divertido, mas é
+necessário. Vamos te ensinar como pensar sobre organização de dados e
 algumas práticas para um melhor desembaraço dos dados.
 
 ### O que esta aula não vai te ensinar
 
-- Como fazer *estatísticas* em uma tabela
-- Como *plotar figuras* a partir de uma tabela
-- Como *escrever código* em programas de tabela
+- Como fazer *estatísticas* em uma planilha
+- Como *plotar figuras* a partir de uma planilha
+- Como *escrever código* em programas de planilha
 
 Se você está procurando fazer isso, uma boa referência é [Head First
 Excel](https://www. mazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
 publicado por O'Reilly.
 
-### Por que não podemos ensinar análises de dados em tabelas
+### Por que não podemos ensinar análises de dados em planilhas
 
-- Análise de dados em tabelas geralmente requerem muito trabalho manual. Se você alterar um parâmetro ou efetuar uma análise com um
-  novo conjunto de dados, normalmente terá de refazer tudo à mão. (We do
-  know that you can create macros, but see the next point.)
+- Análise de dados em planilhas geralmente requerem muito trabalho manual. Se você alterar um parâmetro ou efetuar uma análise com um
+  novo conjunto de dados, normalmente terá de refazer tudo à mão. (Nós
+  sabemos que é posível criar macros, mas veja o próximo ponto)
 
-- It is also difficult to track or reproduce statistical or plotting
-  analyses done in spreadsheet programs when you want to go back to
-  your work or someone asks for details of your analysis.
+- Também é difícil rastrear ou reproduzir estatística ou plotar análises
+  feitas em planilhas quando você quiser voltar a
+  seu trabalho ou quando alguém pede detalhes da sua análise.
 
-Many spreadsheet programs are available. Since most participants
-utilise Excel as their primary spreadsheet program, this lesson will
-make use of Excel examples. A free spreadsheet program that can also
-be used is LibreOffice. Commands may differ a bit between programs,
-but the general idea is the same.
+Muitos programas para análise de tabelas estão disponíveis. Uma vez que a maioria dos participantes
+utiliza o Excel como o seu principal programa de análise de planilhas, esta lição
+utilizará exemplos do Excel. Um programa de análises de planilhas gratuito, que também pode ser usado
+é o LibreOffice. Os comandos podem diferir um pouco entre programas,
+mas a ideia geral é a mesma.
 
-Spreadsheet programs encompass a lot of the things we need to be able
-to do as researchers. We can use them for:
+Programas de análise de planilhas englobam muitas das coisas que precisamos ser capazes de
+ fazer como pesquisadores. Podemos usá-los para:
 
-- Data entry
-- Organizing data
-- Subsetting and sorting data
-- Statistics
-- Plotting
+- Submissão de dados
+- Organização de dados
+- Definição e classificação de dados
+- Estatística
+- Plotagem
 
-Spreadsheet programs use tables to represent and display data. Data
-formatted as tables is also the main theme of this chapter, and we
-will see how to organise data into tables in a standardised way to
-ensure efficient downstream analysis.
+Programas para análise de planilhas utilizan tabelas para representar e exibir dados. Dados
+formatados como tabelas é também o tema principal deste capítulo, e
+veremos como organizar dados em tabelas de uma forma padronizada que
+garante uma análise a jusante eficiente.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: desafio
 
-## Challenge: Discuss the following points with your neighbour
+## Desafio: Discuta os seguintes pontos com o seu colega
 
-- Have you used spreadsheets, in your research, courses,
-  or at home?
-- What kind of operations do you do in spreadsheets?
-- Which ones do you think spreadsheets are good for?
-- Have you accidentally done something in a spreadsheet program that made you
-  frustrated or sad?
+- Já utilizou planilhas, na sua investigação, cursos,
+  ou em casa?
+- Que tipo de operações você faz em planilhas?
+- Para quais delas é que acha que as planilhas são boas?
+- Já fez algo acidentalmente num programa de analise de planilhas  que o deixou
+  frustrado ou triste?
   
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::
 
-### Problems with spreadsheets
+### Problemas com planilhas
 
-Spreadsheets are good for data entry, but in reality we tend to
-use spreadsheet programs for much more than data entry. We use them
-to create data tables for publications, to generate summary
-statistics, and make figures.
+As planilhas são boas para a entrada de dados. No entanto, tendemos a usar programas de análise de planilhas
+para muito mais do que a entrada de dados. Usamos elas
+para criar tabelas de dados para publicações, para gerar estatísticas
+sumarizadas e fazer figuras.
 
-Generating tables for publications in a spreadsheet is not
-optimal - often, when formatting a data table for publication, we're
-reporting key summary statistics in a way that is not really meant to
-be read as data, and often involves special formatting
-(merging cells, creating borders, making it pretty). We advise you to
-do this sort of operation within your document editing software.
+Gerar tabelas para publicações em uma planilha não é
+ideal - frequentemente, ao formatar uma tabela de dados para publicação, Estamos
+relatando estatísticas chaves resumidas de uma forma que não é realmente para
+ser lida como dado, e muitas vezes envolve uma formatação especial
+(mesclando células, criando margens, tornando-a bonita). Aconselhamos que
+faça esse tipo de operação dentro do seu software de edição de documentos.
 
 The latter two applications, generating statistics and figures, should
 be used with caution: because of the graphical, drag and drop nature of
