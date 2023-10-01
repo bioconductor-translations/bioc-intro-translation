@@ -1,50 +1,47 @@
 ---
 source: Rmd
-title: Data organisation with spreadsheets
-teaching: 30
-exercises: 30
+título: Organização de dados em tabelas
+ensinando: 30
+exercícios: 30
 ---
 
-```{r, include=FALSE}
+```{r, FALSE}
 ```
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::::::::::::::::::::::::::::::::::::::: objetivos
 
-- Learn about spreadsheets, their strengths and weaknesses.
-- How do we format data in spreadsheets for effective data use?
-- Learn about common spreadsheet errors and how to correct them.
-- Organise your data according to tidy data principles.
-- Learn about text-based spreadsheet formats such as the comma-separated (CSV) or tab-separated (TSV) formats.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::: questions
-
-- How to organise tabular data?
+- Aprenda sobre tabelas, seus pontos fortes e fraquezas.
+- Como formatamos dados em tabelas para o uso eficaz dos dados?
+- Aprenda sobre erros comuns da manipulação de tabelas e como corrigi-los.
+- Organize os seus dados de acordo com os princípios *tidy*.
+- Saiba mais sobre os formatos de tabelas, como as tabelas separadas por vírgulas (CSV) ou separadas por tabulações (TSV).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Spreadsheet programs
+:::::::::::::::::::::::::::::::::::::::: perguntas
 
-**Question**
+- Como organizar dados tabulares?
 
-- What are basic principles for using spreadsheets for good data
-  organization?
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-**Objective**
+## Programas de folhas de cálculo
 
-- Describe best practices for organizing data so computers can make
-  the best use of datasets.
+**Pergunta**
 
-**Keypoint**
+- Quais são os princípios básicos para se utilizar tabelas para uma boa organização de seus dados
+  ?
 
-- Good data organization is the foundation of any research project.
+**Objetivo**
 
-Good data organization is the foundation of your research
-project. Most researchers have data or do data entry in
-spreadsheets. Spreadsheet programs are very useful graphical
-interfaces for designing data tables and handling very basic data
-quality control functions. See also @Broman:2018.
+- Descrever as melhores práticas de organização de dados para que os computadores possam os utilizar melhor.
+
+**Ponto-chave**
+
+- Uma boa organização dos dados é a base de qualquer projeto de pesquisa.
+
+Uma boa organização dos dados é a base do seu projeto de pesquisa. A maioria dos pesquisadores tem dados ou faz entrada de dados em
+formato de tabela. Programas de análise de tabelas são interfaces
+gráficas muito úteis para projetar dados e lidar com funções e controle de qualidade. Ver também @Broman:2018.
 
 ### Spreadsheet outline
 
