@@ -259,269 +259,252 @@ usadas para variáveis** e **linhas são usadas para observações**:
 
 ## Desafio: Vamos pegar um conjunto de dados confuso e descrever como limpá-lo.
 
-1. Download a messy dataset by clicking
+1. Baixe um conjunto de dados bagunçado clicando em
   [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
 
-2. Open up the data in a spreadsheet program.
+2. Abra os dados em um programa de planilha.
 
-3. You can see that there are two tabs. The data contains various
-  clinical variables recorded in various hospitals in Brussels during
-  the first and second COVID-19 waves in 2020. As you can see, the
-  data have been recorded differently during the March and November
-  waves. Now you're the person in charge of this project and you want
-  to be able to start analyzing the data.
+3. Podemos ver que existem duas abas. Os dados contêm diversas
+  variáveis clínicas registadas em vários hospitais de Bruxelas durante
+  a primeira e a segunda ondas da COVID-19 em 2020. Como se pode ver, os dados de
+  foram registados de forma diferente durante as ondas de Março e Novembro. Agora você é a pessoa responsável por este projeto e você quer
+  poder começar a analisar os dados.
 
-4. With the person next to you, identify what is wrong with this
-  spreadsheet. Also discuss the steps you would need to take to clean
-  up first and second wave tabs, and to put them all together in one
-  spreadsheet.
+4. Com a pessoa ao seu lado, identifique o que há de errado com esta planilha. Também discuta os passos que você precisa dar para limpar
+  as abas associadas à primeira e à segunda ondas, e para colocá-los todos juntos em uma planilha.
 
-**Important:** Do not forget our first piece of advice: to create a
-new file (or tab) for the cleaned data, never modify your original
-(raw) data.
+**Importante:** Não se esqueça do nosso primeiro conselho: criar um
+novo arquivo (ou aba) para os dados limpos, nunca modificar os dados originais
+(brutos).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-After you go through this exercise, we'll discuss as a group what was
-wrong with this data and how you would fix it.
+Depois de fazeres este exercício, discutiremos em grupo o que estava
+errado com estes dados e como o corrigirias.
 
-<!-- - Take about 10 minutes to work on this exercise. -->
+<!-- - Leve cerca de 10 minutos para trabalhar neste exercício. -->
 
-<!-- - All the mistakes in the *common mistakes* section below are present -->
+<!-- - Todos os erros na seção *erros comuns* abaixo estão presentes -->
 
-<!--   in the messy dataset. If the exercise is done during a workshop, ask -->
+<!-- no conjunto de dados bagunçado. Se o exercício for feito durante um oficina, pergunte -->
 
-<!--   people what they saw as wrong with the data. As they bring up -->
+<!-- pessoas o que elas viram de errado com os dados. À medida que eles levantam -->
 
-<!--   different points, you can refer to the common mistakes or expand a -->
+<!-- diferentes pontos, você pode referir-se aos erros comuns ou expandir a
 
-<!--   bit on the point they brought up. -->
+<! - a questão que levantaram. -->
 
-<!-- - If you get a response where they've fixed the date, you can pause -->
+<!-- - Se você receber uma resposta onde eles consertaram a data, você pode pausar -->
 
-<!--   and go to the dates lesson. Or you can say you'll come back to dates -->
+<! - e ir para o conteúdo associado a  datas. Ou você pode dizer que voltará a datas -->
 
-<!--   at the end. -->
+<!-- no final. -->
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::: desafio
 
-## Challenge: Once you have tidied up the data, answer the following questions:
+## Desafio: Uma vez que organizou todos os dados, Responda às seguintes perguntas:
 
-- How many men and women took part in the study?
-- How many A, AB, and B types have been tested?
-- As above, but disregarding the contaminated samples?
-- How many Rhesus + and - have been tested?
-- How many universal donors (O-) have been tested?
-- What is the average weight of AB men?
-- How many samples have been tested in the different hospitals?
+- Quantos homens e mulheres participaram nos estudos?
+- Quantos de tipo sanguíneo A, AB e B foram testados?
+- Tal como acima referido, mas ignorando as amostras contaminadas?
+- Quantos Rhesus + e - foram testados?
+- Quantos doadores universais (O-) foram testados?
+- Qual é o peso médio dos homens de tipo sanguíneo AB?
+- Quantas amostras foram testadas nos diferentes hospitais?
   
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::
 
-An **excellent reference**, in particular with regard to R scripting
-is the *Tidy Data* paper @Wickham:2014.
+Um **excelente referência**, em particular no que diz respeito a R scripting
+é o papel do *Tidy Data* @Wickham:2014.
 
-## Common spreadsheet errors
+## Erros comuns de planilhas
 
-**Questions**
+**Questões**
 
-- What are some common challenges with formatting data in spreadsheets
-  and how can we avoid them?
+- Quais são alguns desafios comuns com a formatação de dados em planilhas
+  e como podemos evitá-los?
 
-**Objectives**
+**Objetivos**
 
-- Recognise and resolve common spreadsheet formatting problems.
+- Reconhecer e resolver problemas comuns de formatação de planilha.
 
 **Keypoints**
 
-- Avoid using multiple tables within one spreadsheet.
-- Avoid spreading data across multiple tabs.
-- Record zeros as zeros.
-- Use an appropriate null value to record missing data.
-- Don't use formatting to convey information or to make your spreadsheet look pretty.
-- Place comments in a separate column.
-- Record units in column headers.
-- Include only one piece of information in a cell.
-- Avoid spaces, numbers and special characters in column headers.
-- Avoid special characters in your data.
-- Record metadata in a separate plain text file.
+- Evite usar várias tabelas dentro de uma planilha.
+- Evite espalhar dados em várias abas.
+- Registre zeros como zeros.
+- Use um valor nulo apropriado para gravar dados faltantes.
+- Não use a formatação para transmitir informações ou para deixar sua planilha bonita.
+- Coloque comentários em uma coluna separada.
+- Registar unidades (de medida) nos cabeçalhos das colunas.
+- Inclua apenas uma informação em uma célula.
+- Evite espaços, números e caracteres especiais nos cabeçalhos de coluna.
+- Evite caracteres especiais em seus dados.
+- Gravar metadados em um arquivo de texto simples separado.
 
-<!-- This lesson is meant to be used as a reference for discussion as -->
+<!-- Esta lição destina-se a ser usada como referência para discussão de como -->
 
-<!-- learners identify issues with the messy dataset discussed in the -->
+<! - os alunos identificam problemas com os dados bagunçados discutido na -->
 
-<!-- previous lesson. Instructors: don't go through this lesson except to -->
+<!-- lição anterior. Instrutores: não passe por esta aula exceto para se referir -->
 
-<!-- refer to responses to the exercise in the previous lesson. -->
+<!-- as respostas do exercício na lição anterior. -->
 
-There are a few potential errors to be on the lookout for in your own
-data as well as data from collaborators or the Internet. If you are
-aware of the errors and the possible negative effect on downstream
-data analysis and result interpretation, it might motivate yourself
-and your project members to try and avoid them. Making small changes
-to the way you format your data in spreadsheets, can have a great
-impact on efficiency and reliability when it comes to data cleaning
-and analysis.
+Há alguns erros potenciais a serem encontrados nos dados, bem como nos dados de colaboradores ou na internet. Se você esta
+ciente dos erros e do possível efeito negativo na análise e interpretação de resultados a jusante, isso pode servir de motivação para você e para
+os membros do seu projeto para tentar evitá-los. Fazendo pequenas alterações
+na forma como você formata seus dados em planilhas pode ter um grande
+impacto na eficiência e confiabilidade na limpeza de dados
+e análise.
 
-- [Using multiple tables](#tables)
-- [Using multiple tabs](#tabs)
-- [Not filling in zeros](#zeros)
-- [Using problematic null values](#null)
-- [Using formatting to convey information](#formatting)
-- [Using formatting to make the data sheet look pretty](#formatting_pretty)
-- [Placing comments or units in cells](#units)
-- [Entering more than one piece of information in a cell](#info)
-- [Using problematic field names](#field_name)
-- [Using special characters in data](#special)
-- [Inclusion of metadata in data table](#metadata)
+- [Utilizar várias tabelas](#tables)
+- [Utilizar várias abas](#tabs)
+- [Não preencher zeros](#zeros)
+- [Utilizar valores nulos problemáticos](#null)
+- [Utilizar formatação para transmitir informações](#formatting)
+- [Utilizar formatação para tornar a folha de dados bonita](#formatting_pretty)
+- [Colocar comentários ou unidades nas células](#units)
+- - [Introduzir mais do que uma informação na célula](#info) [Introduzir mais do que uma informação numa célula](#info)
+- [Utilizar nomes de campos problemáticos](#nome_do_campo)
+- [Utilizar caracteres especiais nos dados](#especial)
+- [Inclusão de metadados na tabela de dados](#metadados)
 
-### Using multiple tables {#tables}
+### Utilizar várias tabelas {#tables}
 
-A common strategy is creating multiple data tables within one
-spreadsheet. This confuses the computer, so don't do this!  When you
-create multiple tables within one spreadsheet, you're drawing false
-associations between things for the computer, which sees each row as
-an observation. You're also potentially using the same field name in
-multiple places, which will make it harder to clean your data up into
-a usable form. The example below depicts the problem:
+Uma estratégia comum é criar várias tabelas em uma mesma planilha. Isso confunde o computador, então não faça isso!  Quando você
+cria múltiplas tabelas dentro de uma planilha, você está desenhando falsas
+associações entre as coisas para o computador, que vê cada linha como
+uma observação. Você também está potencialmente usando o mesmo nome em
+múltiplos lugares, o que dificultará a limpeza de seus dados em
+um formulário utilizável. O exemplo abaixo retrata o problema:
 
-![](fig/2_datasheet_example.jpg)
+![](fig/2_datasheet_example. pg)
 
-In the example above, the computer will see (for example) row 4 and
-assume that all columns A-AF refer to the same sample. This row
-actually represents four distinct samples (sample 1 for each of four
-different collection dates - May 29th, June 12th, June 19th, and June
-26th), as well as some calculated summary statistics (an average (avr)
-and standard error of measurement (SEM)) for two of those
-samples. Other rows are similarly problematic.
+No exemplo acima, o computador verá a linha 4 e
+assumem que todas as colunas A-AF se referem à mesma amostra. Esta linha
+representa na verdade quatro amostras distintas (amostra 1 para cada uma das
+datas diferentes de coleção - dia 29 de maio, 12 de junho, 19 de junho, e
+26 de junho), assim como algumas estatísticas calculadas uma média (avr)
+e um erro padrão (SEM) para duas dessas amostras. Outras linhas da planilha são igualmente problemáticas.
 
-### Using multiple tabs {#tabs}
+### Usando várias abas {#tabs}
 
-But what about workbook tabs? That seems like an easy way to organise
-data, right? Well, yes and no. When you create extra tabs, you fail to
-allow the computer to see connections in the data that are there (you
-have to introduce spreadsheet application-specific functions or
-scripting to ensure this connection). Say, for instance, you make a
-separate tab for each day you take a measurement.
+Mas e sobre as abas da planilha? Essa parece uma maneira fácil de organizar
+dados, certo? Bem, sim e não. Quando você criar abas extras, você impede que o computador veja conexões nos dados que existem (você
+tem que introduzir funções específicas em uma planilha ou o script
+para garantir essa conexão). Digamos, por exemplo, que faz uma
+aba para cada dia de medição.
 
-This isn't good practice for two reasons:
+Esta não é uma boa prática por duas razões:
 
-1. you are more likely to accidentally add inconsistencies to your
-  data if each time you take a measurement, you start recording data
-  in a new tab, and
+1. você tem mais probabilidade de adicionar inconsistências acidentalmente aos seus dados
+  se cada vez que fizer uma medida, você adicionar os resultados 
+  em uma nova aba, e
 
-2. even if you manage to prevent all inconsistencies from creeping in,
-  you will add an extra step for yourself before you analyse the data
-  because you will have to combine these data into a single
-  datatable. You will have to explicitly tell the computer how to
-  combine tabs - and if the tabs are inconsistently formatted, you
-  might even have to do it manually.
+2. mesmo se você conseguir evitar que todas as inconsistências entrem, 
+  você irá adicionar um passo extra antes de analisar os dados
+  pois terá que combinar esses dados em um único
+  dataset. Você terá que dizer explicitamente ao computador como
+  combinar as abas - e se as abas forem formatadas de forma inconsistente, você
+  talvez tenha até que combiná-las manualmente.
 
-The next time you're entering data, and you go to create another tab
-or table, ask yourself if you could avoid adding this tab by adding
-another column to your original spreadsheet. We used multiple tabs in
-our example of a messy data file, but now you've seen how you can
-reorganise your data to consolidate across tabs.
+Na próxima vez que você estiver inserindo dados, e pense em criar outra aba
+ou tabela, Pergunte se você poderia evitar adicionar esta aba adicionando
+outra coluna à sua planilha original. Usamos várias abas em
+nosso exemplo de um arquivo de dados confuso, mas agora você viu como pode
+reorganizar seus dados para os consolidar através de abas.
 
-Your data sheet might get very long over the course of the
-experiment. This makes it harder to enter data if you can't see your
-headers at the top of the spreadsheet. But don't repeat your header
-row. These can easily get mixed into the data, leading to problems
-down the road. Instead you can [freeze the column
-headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
-so that they remain visible even when you have a spreadsheet with many
-rows.
+Sua planilha pode ficar muito longa durante o experimento. Isso dificulta a entrada de dados se você não consegue ver os cabeçalhos
+no topo da planilha. Mas não repita a sua linha de
+cabeçalho. Ele pode facilmente se misturar com os dados, levando a problemas
+ao longo da análise. Em vez disso, você pode [congelar a coluna
+cabeçalho](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
+para que elas permaneçam visíveis mesmo quando você tiver uma planilha com muitas linhas.
 
-### Not filling in zeros {#zeros}
+### Não preencher zeros {#zeros}
 
-It might be that when you're measuring something, it's usually a zero,
-say the number of times a rabbit is observed in the survey. Why bother
-writing in the number zero in that column, when it's mostly zeros?
+Pode ser que quando você estiver medindo algo, o resultado é um zero,
+como o número de vezes que um coelho é observado na pesquisa. Porquê dar-se ao trabalho de
+escrever o número zero nessa coluna, quando a maior parte serão zeros?
 
-However, there's a difference between a zero and a blank cell in a
-spreadsheet. To the computer, a zero is actually data. You measured or
-counted it. A blank cell means that it wasn't measured and the
-computer will interpret it as an unknown value (also known as a null
-or missing value).
+No entanto, há uma diferença entre uma célula com um zero e uma célula em branco em uma planilha. Para o computador, um zero é de fato um dado. Você teve informações sobre ele e o mediu. Uma célula em branco significa que a informação não foi medida e o computador
+irá interpretá-la como um valor desconhecido (também conhecido como um valor
+nulo ou valor faltando).
 
-The spreadsheets or statistical programs will likely misinterpret
-blank cells that you intend to be zeros. By not entering the value of
-your observation, you are telling your computer to represent that data
-as unknown or missing (null). This can cause problems with subsequent
-calculations or analyses. For example, the average of a set of numbers
-which includes a single null value is always null (because the
-computer can't guess the value of the missing observations). Because
-of this, it's very important to record zeros as zeros and truly
-missing data as nulls.
+As planilhas ou programas estatísticos provavelmente interpretarão erradamente
+células em branco que você pretende deveriam ser zeros. Ao não inserir o valor de
+sua observação, você está dizendo ao seu computador para representar esses dados
+como desconhecido ou faltando (nulos ou null). Isso pode causar problemas com cálculos ou análises posteriores. Por exemplo, a média de um conjunto de números
+que inclui um único valor nulo é sempre nulo (porque o computador
+não consegue adivinhar o valor das observações que faltam). Porque
+disso é muito importante gravar zeros como zeros e os
+dados ausentes como nulos.
 
-### Using problematic null values {#null}
+### Usando valores nulos problemáticos {#null}
 
-**Example**: using -999 or other numerical values (or zero) to
-represent missing data.
+**Exemplo**: usando -999 ou outros valores numéricos (ou zero) para
+representa dados faltantes.
 
-**Solutions**:
+**Soluções**:
 
-There are a few reasons why null values get represented differently
-within a dataset. Sometimes confusing null values are automatically
-recorded from the measuring device. If that's the case, there's not
-much you can do, but it can be addressed in data cleaning with a tool
-like
+Existem algumas razões pelas quais valores nulos são representados de forma diferente
+dentro de um conjunto de dados. Às vezes, valores nulos confusos são automaticamente
+gravados a depender do dispositivo de medição. Se for esse o caso, não há
+muito que se possa fazer, mas pode ser resolvido na limpeza de dados com uma ferramenta
+como
 [OpenRefine](https://www.datacarpentry.org/OpenRefine-ecology-lesson/)
-before analysis. Other times different null values are used to convey
-different reasons why the data isn't there. This is important
-information to capture, but is in effect using one column to capture
-two pieces of information. Like for [using formatting to convey
-information](#formatting) it would be good here to create a new
-column like 'data\_missing' and use that column to capture the
-different reasons.
+antes da análise. Outras vezes valores nulos diferentes são usados para transmitir
+diferentes razões porque os dados não estão lá. Essa é uma informação
+importante para capturar, mas está em vigor usando uma coluna para capturar
+dois tipos de informação diferentes. Assim como para [usando formatação para transmitir informação](#formatting) seria bom aqui criar uma nova coluna
+como 'data\_missing' e usar essa coluna para capturar as diferentes razões para o dado ser nulo.
 
-Whatever the reason, it's a problem if unknown or missing data is
-recorded as -999, 999, or 0.
+Seja qual for a razão, é um problema se dados desconhecidos ou ausentes são
+registrados como -999, 999 ou 0.
 
-Many statistical programs will not recognise that these are intended
-to represent missing (null) values. How these values are interpreted
-will depend on the software you use to analyse your data. It is
-essential to use a clearly defined and consistent null indicator.
+Muitos programas estatísticos não reconhecerão que esses valores se destinam a
+a representar valores (null) ausentes. A forma como esses valores são interpretados
+dependerá do software que você usa para analisar seus dados. É
+essencial usar um indicador de dados nulos claramente definido e consistente.
 
-Blanks (most applications) and NA (for R) are good
-choices. @White:2013 explain good choices for indicating null values
-for different software applications in their article:
+Espaços em branco (maioria dos aplicativos) e NA (para R) são boas
+escolhas. @White:2013 explica boas escolhas para indicar valores nulos
+para diferentes aplicações de software no seu artigo:
 
 ![](fig/3_white_table_1.jpg)
 
-### Using formatting to convey information {#formatting}
+### Utilizar a formatação para transmitir informação {#formatting}
 
-**Example**: highlighting cells, rows or columns that should be
-excluded from an analysis, leaving blank rows to indicate
-separations in data.
+**Exemplo**: destacar células, linhas ou colunas que devem ser
+excluídas de uma análise, deixando linhas em branco para indicar
+separações nos dados.
 
 ![](fig/formatting.png)
 
-**Solution**: create a new field to encode which data should be
-excluded.
+**Solução**: crie um novo campo para identificar quais dados devem ser excluídos.
 
 ![](fig/good_formatting.png)
 
-### Using formatting to make the data sheet look pretty {#formatting\_pretty}
+### Usando formatação para fazer a folha de dados parecer {#formatting\_pretty}
 
-**Example**: merging cells.
+**Exemplo**: mesclando células.
 
-**Solution**: If you're not careful, formatting a worksheet to be more
-aesthetically pleasing can compromise your computer's ability to see
-associations in the data. Merged cells will make your data unreadable
-by statistics software. Consider restructuring your data in such a way
-that you will not need to merge cells to organise your data.
+**Solução**: se você não for cuidadoso, formatar uma tabela para ser mais
+esteticamente agradável pode comprometer a capacidade do seu computador de identificar
+associações nos dados. As células fundidas tornarão os seus dados ilegíveis
+por softwares estatístico. Considere a reestruturação de seus dados de forma a
+que você não precisará mesclar/combinar células para organizar seus dados.
 
-### Placing comments or units in cells {#units}
+### Colocar comentários ou unidadesde medida nas células {#units}
 
-Most analysis software can't see Excel or LibreOffice comments, and
-would be confused by comments placed within your data cells. As
-described above for formatting, create another field if you need to
-add notes to cells. Similarly, don't include units in cells: ideally,
-all the measurements you place in one column should be in the same
-unit, but if for some reason they aren't, create another field and
-specify the units the cell is in.
+A maioria dos softwares de análise não pode ver comentários do Excel ou do LibreOffice, e
+fica confuso com os comentários colocados em suas células de dados. Como o
+descrito acima para a formatação, crie outro campo se você precisar
+adicionar anotações a uma linha. Da mesma forma, não inclua unidades de medida nas células: idealmente,
+todas as medidas que se coloca numa coluna devem estar na mesma unidade, mas se por alguma razão não estiverem, crie outro campo e
+especifique as unidades em que a célula está.
 
 ### Entering more than one piece of information in a cell {#info}
 
