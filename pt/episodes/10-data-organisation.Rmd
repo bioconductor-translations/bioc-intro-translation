@@ -119,120 +119,112 @@ ser lida como dado, e muitas vezes envolve uma formatação especial
 (mesclando células, criando margens, tornando-a bonita). Aconselhamos que
 faça esse tipo de operação dentro do seu software de edição de documentos.
 
-The latter two applications, generating statistics and figures, should
-be used with caution: because of the graphical, drag and drop nature of
-spreadsheet programs, it can be very difficult, if not impossible, to
-replicate your steps (much less retrace anyone else's), particularly if your
-stats or figures require you to do more complex calculations. Furthermore,
-in doing calculations in a spreadsheet, it's easy to accidentally apply a
-slightly different formula to multiple adjacent cells. When using a
-command-line based statistics program like R or SAS, it's practically
-impossible to apply a calculation to one observation in your
-dataset but not another unless you're doing it on purpose.
+As duas últimas aplicações, a geração de estatísticas e números,
+deve ser usada com cuidado: por causa da natureza gráfica dos programas, arrastar e soltar, pode ser muito difícil, se não impossível, se quiser repetir seus movimentos (e para qualquer outra pessoa reproduzir), particularmente se suas estatísticas
+ou números exigem que você faça cálculos mais complexos. Além disso,
+ao efetuar cálculos numa planilha, é fácil aplicar acidentalmente uma
+fórmula ligeiramente diferente a várias células adjacentes. Quando se utiliza um programa de estatística baseado na linha de comandos
+como o R ou o SAS, é praticamente
+impossível aplicar um cálculo a uma observação no seu conjunto de dados
+mas não a outra, a menos que o faça de propósito.
 
-### Using spreadsheets for data entry and cleaning
+### Utilização de planilhas para introdução e limpeza de dados
 
-In this lesson, we will assume that you are most likely using Excel as
-your primary spreadsheet program - there are others (gnumeric, Calc
-from OpenOffice), and their functionality is similar, but Excel seems
-to be the program most used by biologists and biomedical researchers.
+Nesta lição, vamos assumir que provavelmente está utilizando o Excel como
+o seu programa de planilhas principal - existem outros (gnumeric, Calc
+do OpenOffice), e a sua funcionalidade é semelhante, mas o Excel parece
+ser o programa mais utilizado por biólogos e biomédicos.
 
-In this lesson we're going to talk about:
+Nesta aula vamos falar sobre:
 
-1. Formatting data tables in spreadsheets
-2. Formatting problems
-3. Exporting data
+1. Formatando tabelas de dados em planilhas
+2. Problemas de formatação
+3. Exportar dados
 
-## Formatting data tables in spreadsheets
+## Formatar tabelas de dados em planilhas
 
-**Questions**
+**Perguntas**
 
-- How do we format data in spreadsheets for effective data use?
+- Como formatar dados em planilhas para uma utilização eficaz dos dados?
 
-**Objectives**
+**Objectivos**
 
-- Describe best practices for data entry and formatting in
-  spreadsheets.
+- Descrever as melhores práticas para a introdução de dados e formatação em planilhas.
 
-- Apply best practices to arrange variables and observations in a
-  spreadsheet.
+- Aplicar as melhores práticas para organizar variáveis e observações em uma planilha.
 
-**Keypoints**
+**Pontos-chave**
 
-- Never modify your raw data. Always make a copy before making any
-  changes.
+- Nunca modifique os seus dados brutos. Sempre fazer uma cópia antes de fazer quaisquer alterações.
 
-- Keep track of all of the steps you take to clean your data in a
-  plain text file.
+- Mantenha o controle de todas as etapas que você tomar para limpar seus dados em um arquivo
+  de texto simples.
 
-- Organise your data according to tidy data principles.
+- Organize os seus dados de acordo com os princípios *tidy*.
 
-The most common mistake made is treating spreadsheet programs like lab
-notebooks, that is, relying on context, notes in the margin, spatial
-layout of data and fields to convey information. As humans, we can
-(usually) interpret these things, but computers don't view information
-the same way, and unless we explain to the computer what every single
-thing means (and that can be hard!), it will not be able to see how
-our data fits together.
+O erro mais comum cometido é tratar programas de análise de planilha como cadernos de
+laboratórios, ou seja, dependendo do contexto, notas na margem, layout espacial
+de dados e campos para transmitir informações. Como seres humanos, podemos
+(normalmente) interpretar estas coisas, mas os computadores não vêem a informação
+da mesma forma e, a menos que expliquemos ao computador o que cada
+coisa significa (e isso pode ser difícil!), ele não será capaz de ver como
+os dados se encaixam.
 
-Using the power of computers, we can manage and analyse data in much
-more effective and faster ways, but to use that power, we have to set
-up our data for the computer to be able to understand it (and
-computers are very literal).
+Utilizando o poder dos computadores, podemos gerir e analisar dados de formas muito
+mais eficazes e rápidas, mas para utilizar esse poder, temos de
+configurar os nossos dados para que o computador os possa compreender (e
+os computadores são muito literais).
 
-This is why it's extremely important to set up well-formatted tables
-from the outset - before you even start entering data from your very
-first preliminary experiment. Data organization is the foundation of
-your research project. It can make it easier or harder to work with
-your data throughout your analysis, so it's worth thinking about when
-you're doing your data entry or setting up your experiment. You can
-set things up in different ways in spreadsheets, but some of these
-choices can limit your ability to work with the data in other programs
-or have the you-of-6-months-from-now or your collaborator work with
-the data.
+É por isso que é extremamente importante criar tabelas bem formatadas
+desde o início - antes mesmo de começar a introduzir os dados da sua
+primeira experiência. Uma boa organização dos dados é a base do seu projeto de pesquisa. Ela pode tornar mais fácil ou mais difícil trabalhar com
+os seus dados ao longo da análise, assim vale a pena pensar nisso quando
+estiver introduzindo os dados ou a preparar a experiência. Você pode
+configurar as coisas de formas diferentes em planilhas, mas algumas destas
+opções podem limitar sua capacidade de trabalhar com os dados de outros programas
+ou limitar o você de daqui há 6 meses e o seu colaborador de trabalhar com
+os dados.
 
-**Note:** the best layouts/formats (as well as software and
-interfaces) for data entry and data analysis might be different. It is
-important to take this into account, and ideally automate the
-conversion from one to another.
+**Nota: Os melhores layouts/formatos (bem como o software e as interfaces) para a introdução e análise de dados podem ser diferentes. É
+importante ter isso em conta e procurar automatizar a conversão
+de um para outro.
 
-### Keeping track of your analyses
+### Mantendo o controle de suas análises
 
-When you're working with spreadsheets, during data clean up or
-analyses, it's very easy to end up with a spreadsheet that looks very
-different from the one you started with. In order to be able to
-reproduce your analyses or figure out what you did when a reviewer or
-instructor asks for a different analysis, you should
+Quando você está trabalhando com planilhas, durante a limpeza de dados ou análises, É muito fácil acabar com uma planilha que parece bem
+diferente daquela com que você começou. Para ser capaz de
+reproduzir suas análises ou descobrir o que você fez quando um revisor ou um instrutor
+pede uma análise diferente você deve
 
-- create a new file with your cleaned or analysed data. Don't modify
-  the original dataset, or you will never know where you started!
+- criar um novo arquivo com seus dados limpos ou analisados. Não modifique
+  o conjunto de dados original, ou você nunca saberá por onde começou!
 
-- keep track of the steps you took in your clean up or analysis. You
-  should track these steps as you would any step in an experiment. We
-  recommend that you do this in a plain text file stored in the same
-  folder as the data file.
+- mantenha um registo dos passos que deu na sua limpeza ou análise. Você
+  deve acompanhar estes passos como você faria em passos de um experimento de bancada. Nós
+  recomendamos que você faça isso em um arquivo de texto simples armazenado na mesma pasta
+  do arquivo de dados.
 
-This might be an example of a spreadsheet setup:
+Este pode ser um exemplo de configuração de uma planilha:
 
 ![](fig/spreadsheet-setup-updated.png)
 
-Put these principles in to practice today during your exercises.
+Coloque esses princípios para praticar hoje mesmo durante seus exercícios.
 
-While versioning is out of scope for this course, you can look at the
-Carpentries lesson on
-['Git'](https://swcarpentry.github.io/git-novice/) to learn how to
-maintain **version control** over your data. See also this [blog
-post](https://lgatto.github.io/github-intro/) for a quick tutorial or
-@Perez-Riverol:2016 for a more research-oriented use-case.
+Enquanto o controle de versão está fora de escopo, você pode ver a aula
+do Carpentries em
+['Git'](https://swcarpentry. ithub.io/git-novice/) para aprender como
+manter um **controle de versão** sobre seus dados. Veja também este [blog
+post](https://lgatto.github.io/github-intro/) para um tutorial rápido, ou
+@Perez-Riverol:2016 para um exemplo mais voltado à pesquisa.
 
-### Structuring data in spreadsheets
+### Estrutura de dados em planilhas
 
-The cardinal rules of using spreadsheet programs for data:
+As regras de usar programas de planilha para análise de dados
 
-1. Put all your variables in columns - the thing you're measuring,
-  like 'weight' or 'temperature'.
-2. Put each observation in its own row.
-3. Don't combine multiple pieces of information in one cell. Sometimes
+1. Coloque todas as suas variáveis em colunas - a coisa que você está medindo,
+  como 'peso' ou 'temperatura'.
+2. Coloque cada observação em sua própria linha.
+3. Não combina várias informações em uma só célula. Sometimes
   it just seems like one thing, but think if that's the only way
   you'll want to be able to use or sort that data.
 4. Leave the raw data raw - don't change it!
