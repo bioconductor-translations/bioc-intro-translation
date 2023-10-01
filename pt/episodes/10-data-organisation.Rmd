@@ -506,56 +506,54 @@ adicionar anotações a uma linha. Da mesma forma, não inclua unidades de medid
 todas as medidas que se coloca numa coluna devem estar na mesma unidade, mas se por alguma razão não estiverem, crie outro campo e
 especifique as unidades em que a célula está.
 
-### Entering more than one piece of information in a cell {#info}
+### Colocando em mais de um pedaço de informação em uma única célula {#info}
 
-**Example**: Recording ABO and Rhesus groups in one cell, such as A+,
+**Exemplo**: Gravação de grupos ABO e Rhesus em uma célula, como A+,
 B+, A-, ...
 
-**Solution**: Don't include more than one piece of information in a
-cell. This will limit the ways in which you can analyse your data.  If
-you need both these measurements, design your data sheet to include
-this information. For example, include one column for the ABO group and
-one for the Rhesus group.
+**Solução**: Não incluir mais do que uma informação numa célula. Isso limitará as maneiras pelas quais você pode analisar seus dados.  Se
+precisar destas duas medidas, crie sua tabela para incluir
+estas informações. Por exemplo, inclua uma coluna para o grupo ABO e
+uma para o grupo Rhesus.
 
-### Using problematic field names {#field\_name}
+### Usando nomes de campos problemáticos {#field\_name}
 
-Choose descriptive field names, but be careful not to include spaces,
-numbers, or special characters of any kind. Spaces can be
-misinterpreted by parsers that use whitespace as delimiters and some
-programs don't like field names that are text strings that start with
-numbers.
+Escolha nomes de coluna descritivos, mas tenha cuidado para não incluir espaços,
+números ou caracteres especiais de qualquer tipo. Os espaços podem ser
+mal interpretados por analisadores que utilizam espaços em branco como delimitadores e alguns programas
+não gostam de nomes de campos que são cadeias de texto que começam com
+números.
 
-Underscores (`_`) are a good alternative to spaces. Consider writing
-names in camel case (like this: ExampleFileName) to improve
-readability. Remember that abbreviations that make sense at the moment
-may not be so obvious in 6 months, but don't overdo it with names that
-are excessively long. Including the units in the field names avoids
-confusion and enables others to readily interpret your fields.
+Os sublinhados (`_`) são uma boa alternativa aos espaços. Considere escrever
+nomes de forma as palavras se separarem por letras maiúsculas (como este: ExampleFileName) para melhorar a legibilidade. Lembre-se que as abreviações que fazem sentido no momento
+podem não ser tão óbvias em 6 meses, mas não exagere com nomes que
+são excessivamente longos. Incluindo as unidades de medida no campo os nomes evitam
+confusão e permitem que outros interpretem prontamente suas colunas.
 
-**Examples**
+**Exemplos**
 
-| Good Name        | Good Alternative  | Avoid             | 
+| Bom nome | Boa alternativa | Evitar | 
 | ---------------- | ----------------- | ----------------- |
-| Max\_temp\_C       | MaxTemp           | Maximum Temp (°C) | 
-| Precipitation\_mm | Precipitation     | precmm            | 
-| Mean\_year\_growth | MeanYearGrowth    | Mean growth/year  | 
-| sex              | sex               | M/F               | 
-| weight           | weight            | w.                | 
-| cell\_type        | CellType          | Cell Type         | 
-| Observation\_01   | first\_observation | 1st Obs           | 
+| Max\_temp\_C | MaxTemp | Temperatura máxima (°C) | 
+| Precipitação\_mm | Precipitação | precmm | 
+| Media\_ano\_crescimento | MediaAnoCrescimento| Crescimento médio/ano | 
+| sexo | sexo | M/F | 
+| peso | peso w.                | 
+| celula\_tipo | CelulaTipo | Tipo Celular | 
+| Observacao\_01 | primeira\_observacao | 1st Obs | 
 
-### Using special characters in data {#special}
+### Utilizar caracteres especiais nos dados {#special}
 
-**Example**: You treat your spreadsheet program as a word processor
-when writing notes, for example copying data directly from Word or
-other applications.
+**Exemplo**: O programa de planilhas é tratado como um processador de texto
+quando escreve notas, por exemplo, copiando dados diretamente do Word ou de
+outras aplicações.
 
-**Solution**: This is a common strategy. For example, when writing
-longer text in a cell, people often include line breaks, em-dashes,
-etc. in their spreadsheet. Also, when copying data in from
-applications such as Word, formatting and fancy non-standard
-characters (such as left- and right-aligned quotation marks) are
-included. When exporting this data into a coding/statistical
+**Solução**: Essa é uma estratégia comum. Por exemplo, ao escrever
+mais texto em uma célula, as pessoas muitas vezes incluem quebras de linha, e-dashes,
+etc. em sua planilha. Além disso, ao copiar dados de
+aplicações como Word, caracteres de formatação e 
+não-padrão (tais como aspas alinhadas à esquerda e à direita) estão
+incluídos. When exporting this data into a coding/statistical
 environment or into a relational database, dangerous things may occur,
 such as lines being cut in half and encoding errors being thrown.
 
