@@ -553,21 +553,20 @@ mais texto em uma célula, as pessoas muitas vezes incluem quebras de linha, e-d
 etc. em sua planilha. Além disso, ao copiar dados de
 aplicações como Word, caracteres de formatação e 
 não-padrão (tais como aspas alinhadas à esquerda e à direita) estão
-incluídos. When exporting this data into a coding/statistical
-environment or into a relational database, dangerous things may occur,
-such as lines being cut in half and encoding errors being thrown.
+incluídos. Ao exportar esses dados para um ambiente de codificação/estatística
+ou em um banco de dados, coisas perigosas podem ocorrer,
+como linhas sendo cortadas ao meio e os erros de codificação são lançados.
 
-General best practice is to avoid adding characters such as newlines,
-tabs, and vertical tabs. In other words, treat a text cell as if it
-were a simple web form that can only contain text and spaces.
+As melhores práticas gerais são evitar a adição de caracteresextras como novas linhas, abas e colunas. Em outras palavras, trate uma célula de texto como se
+fosse um simples formulário online que pode conter apenas texto e espaços.
 
-### Inclusion of metadata in data table {#metadata}
+### Inclusão de metadados na tabela {#metadata}
 
-**Example**: You add a legend at the top or bottom of your data table
-explaining column meaning, units, exceptions, etc.
+**Exemplo**: Adiciona uma legenda na parte superior ou inferior da sua tabela de dados
+explicando o significado da coluna, unidades, exceções, etc.
 
-**Solution**: Recording data about your data ("metadata") is
-essential. You may be on intimate terms with your dataset while you
+**Solução**: O registo de dados sobre os seus dados ("metadados") é
+essencial. You may be on intimate terms with your dataset while you
 are collecting and analysing it, but the chances that you will still
 remember that the variable "sglmemgp" means single member of group,
 for example, or the exact algorithm you used to transform a variable
