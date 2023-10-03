@@ -566,236 +566,216 @@ fosse um simples formulário online que pode conter apenas texto e espaços.
 explicando o significado da coluna, unidades, exceções, etc.
 
 **Solução**: O registo de dados sobre os seus dados ("metadados") é
-essencial. You may be on intimate terms with your dataset while you
-are collecting and analysing it, but the chances that you will still
-remember that the variable "sglmemgp" means single member of group,
-for example, or the exact algorithm you used to transform a variable
-or create a derived one, after a few months, a year, or more are slim.
+essencial. Mesmo que você conheça muito bem seus dados enquanto os coleta e analisa, as chances de que você lembrará que a variável "sglmemgp" significa cada membro de um grupo, ou o exato algorítimo usado diminuem com o passar dos mêses.
 
-As well, there are many reasons other people may want to examine or
-use your data - to understand your findings, to verify your findings,
-to review your submitted publication, to replicate your results, to
-design a similar study, or even to archive your data for access and
-re-use by others. While digital data by definition are
-machine-readable, understanding their meaning is a job for human
-beings. The importance of documenting your data during the collection
-and analysis phase of your research cannot be overestimated,
-especially if your research is going to be part of the scholarly
-record.
+Também existem muitas razões pelas quais outras pessoas podem querer examinar ou
+usar seus dados - para entender suas descobertas, para verificar suas descobertas,
+para rever uma publicação submetida, para replicar seus resultados, para
+projetar um estudo semelhante, ou até mesmo para arquivar seus dados para acesso e
+reutiliza-los. Embora os dados sejam, por definição,
+legíveis por máquinas, a compreensão do seu significado é uma tarefa para humanos. A importância de documentar os seus dados durante a fase de coleta
+e análise da sua investigação não pode ser subestimada,
+especialmente se a sua investigação for fazer parte do registo académico.
 
-However, metadata should not be contained in the data file
-itself. Unlike a table in a paper or a supplemental file, metadata (in
-the form of legends) should not be included in a data file since this
-information is not data, and including it can disrupt how computer
-programs interpret your data file. Rather, metadata should be stored
-as a separate file in the same directory as your data file, preferably
-in plain text format with a name that clearly associates it with your
-data file. Because metadata files are free text format, they also
-allow you to encode comments, units, information about how null values
-are encoded, etc. that are important to document but can disrupt the
-formatting of your data file.
+No entanto, os metadados não devem estar contidos no arquivo de dados
+em si. Ao contrário de uma tabela em um papel ou um arquivo suplementar metadados (em forma de legendas) não devem ser incluídos em um arquivo de dados já que esta informação
+não é de dados, e incluir isso pode interromper como o computador interpreta seu arquivo de dados. Em vez disso, os metadados devem ser armazenados
+como um arquivo separado, no mesmo diretório do seu arquivo de dados de preferência,
+em formato de texto simples com um nome que claramente o associa ao seu arquivo de dados. Como arquivos de metadados são no formato de texto livre, eles também
+permitem que você adicione comentários, unidades, informações sobre como valores nulos
+são codificados, etc. Informações que são importantes na documentação, mas podem interromper a formatação
+do seu arquivo de dados.
 
-Additionally, file or database level metadata describes how files that
-make up the dataset relate to each other; what format they are in; and
-whether they supercede or are superceded by previous files. A
-folder-level readme.txt file is the classic way of accounting for all
-the files and folders in a project.
+Além disso, os metadados do arquivo ou do banco de dados descrevem como arquivos que
+compõem o conjunto de dados se relacionam entre si; em que formato eles estão; e
+se eles superpõe ou são substituídos por arquivos anteriores. Um arquivo readme.txt
+presente na pasta é a maneira clássica de contabilizar todos os arquivos e pastas
+em um projeto.
 
-(Text on metadata adapted from the online course Research Data
-[MANTRA](https://datalib.edina.ac.uk/mantra) by EDINA and Data Library,
-University of Edinburgh. MANTRA is licensed under a [Creative Commons
-Attribution 4.0 International
+(Texto sobre metadados adaptados do curso Pesquisa Dados
+[MANTRA](https://datalib.edina.ac.uk/mantra) pela EDINA e Biblioteca de Dados,
+Universidade de Edinburgh. MANTRA está licenciado sob uma [Creative Commons
+Atribuição 4.0 International
 License](https://creativecommons.org/licenses/by/4.0/).)
 
-## Exporting data
+## Exportando dados
 
-**Question**
+**Pergunta**
 
-- How can we export data from spreadsheets in a way that is useful for
-  downstream applications?
+- Como podemos exportar dados de planilhas de uma forma que seja útil para
+ os aplicativos a jusante?
 
-**Objectives**
+**Objetivos**
 
-- Store spreadsheet data in universal file formats.
-- Export data from a spreadsheet to a CSV file.
+- Armazene dados das planilha em formatos de arquivo universais.
+- Exportar dados de uma planilha para um arquivo CSV.
 
-**Keypoints**
+**Pontos-chave**
 
-- Data stored in common spreadsheet formats will often not be read
-  correctly into data analysis software, introducing errors into your
-  data.
+- Os dados armazenados em formatos de planilha comuns não serão muitas vezes lidos
+  corretamente nos softwares de análise de dados, introduzindo erros.
 
-- Exporting data from spreadsheets to formats like CSV or TSV puts it
-  in a format that can be used consistently by most programs.
+- A exportação de dados de planilhas para formatos como CSV ou TSV os coloca
+  em um formato que pode ser usado consistentemente pela maioria dos programas.
 
-Storing the data you're going to work with for your analyses in Excel
-default file format (`*.xls` or `*.xlsx` - depending on the Excel
-version) isn't a good idea. Why?
+Armazenando os dados com os quais você trabalhará para suas análises no formato de arquivo Excel
+padrão (`*. ls` or `*.xlsx` - dependendo da versão do Excel) não é uma boa ideia. Por quê?
 
-- Because it is a proprietary format, and it is possible that in the
-  future, technology won't exist (or will become sufficiently rare) to
-  make it inconvenient, if not impossible, to open the file.
+- Porque é um formato proprietário, e é possível que no futuro, essa tecnologia não existirá (ou se tornará suficientemente rara) para
+  torná-la inconveniente, se não for impossível, de abrir o arquivo.
 
-- Other spreadsheet software may not be able to open files saved in a
-  proprietary Excel format.
+- Outro software de planilha pode não ser capaz de abrir arquivos salvos em um formato
+  proprietário do Excel.
 
-- Different versions of Excel may handle data differently, leading to
-  inconsistencies. [Dates](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
-  is a well-documented example of inconsistencies in data storage.
+- Diferentes versões do Excel podem tratar os dados de forma diferente, levando a inconsistências. [Dates](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
+  é um exemplo bem documentado de inconsistências no armazenamento de dados.
 
-- Finally, more journals and grant agencies are requiring you to
-  deposit your data in a data repository, and most of them don't
-  accept Excel format. It needs to be in one of the formats discussed
-  below.
+- Por último, cada vez mais revistas e agências de financiamento exigem que
+  deposite os seus dados num repositório de dados, e a maioria deles não aceita o formato Excel. Ele precisa estar em um dos formatos discutidos
+  abaixo.
 
-- The above points also apply to other formats such as open data
-  formats used by LibreOffice / Open Office. These formats are not
-  static and do not get parsed the same way by different software
-  packages.
+- Os pontos acima também se aplicam a outros formatos como formatos de dados abertos
+  usados pelo LibreOffice / Open Office. Estes formatos não são
+  estáticos e não são analisados da mesma maneira por diferentes softwares
+ ou pacotes.
 
-Storing data in a universal, open, and static format will help deal
-with this problem. Try tab-delimited (tab separated values or TSV) or
-comma-delimited (comma separated values or CSV). CSV files are plain
-text files where the columns are separated by commas, hence 'comma
-separated values' or CSV. The advantage of a CSV file over an
-Excel/SPSS/etc. file is that we can open and read a CSV file using
-just about any software, including plain text editors like TextEdit or
-NotePad. Data in a CSV file can also be easily imported into other
-formats and environments, such as SQLite and R. We're not tied to a
-certain version of a certain expensive program when we work with CSV
-files, so it's a good format to work with for maximum portability and
-endurance. Most spreadsheet programs can save to delimited text
-formats like CSV easily, although they may give you a warning during
-the file export.
+Armazenar dados em um formato universal, aberto e estático ajudará a lidar com este problema. Tente formatos delimitado por tabulações (valores separados por tabulação ou TSV) ou
+delimitado por vírgulas (valores separados por vírgula ou CSV). Arquivos CSV são arquivos com texto
+simples onde as colunas são separadas por vírgulas, portanto 'vírgula
+separam valores' ou CSV (do inglês, comma separated files). A vantagem de um arquivo CSV em um
+Excel/SPSS/etc. é que podemos abrir e ler um arquivo CSV usando
+praticamente qualquer software, incluindo editores de texto simples como TextEdit ou
+NotePad. Os dados em um arquivo CSV também podem ser facilmente importados para outros formatos
+e ambientes, como SQLite e R. Nós não estamos vinculados a uma determinada versão
+de um certo programa caro quando trabalhamos com arquivos CSV
+então é um bom formato trabalhar com o máximo de portabilidade e resistência. A maioria dos programas de planilha pode delimitar textos
+formatos como CSV facilmente, embora eles possam dar a você um aviso durante
+a exportação do arquivo que o formato original será perdido.
 
-To save a file you have opened in Excel in CSV format:
+Para salvar um arquivo que você abriu em Excel no formato CSV:
 
-1. From the top menu select 'File' and 'Save as'.
-2. In the 'Format' field, from the list, select 'Comma Separated
-  Values' (`*.csv`).
-3. Double check the file name and the location where you want to save
-  it and hit 'Save'.
+1. No menu superior selecione 'Arquivo' e 'Salvar como'.
+2. No campo "Formato", selecione da lista "Comma Separated
+  Values" (`*.csv`).
+3. Verifique o nome do arquivo e o local onde você quer salvar-lo e pressione 'Salvar'.
 
-An important note for backwards compatibility: you can open CSV files
-in Excel!
+Uma nota importante para compatibilidade retroativa: você pode abrir os arquivos CSV
+em Excel!
 
 ```{r, results="markup", fig.cap="Saving an Excel file to CSV.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
 knitr::include_graphics("fig/excel-to-csv.png")
 ```
 
-**A note on R and `xls`**: There are R packages that can read `xls`
-files (as well as Google spreadsheets). It is even possible to access
-different worksheets in the `xls` documents.
+**Uma nota em R e `xls`**: Existem pacotes R que podem ler arquivos `xls`
+(bem como Google spreadsheets). É até possível acessar
+diferentes abas nos documentos 'xls'.
 
-**But**
+**Mas**
 
-- some of these only work on Windows.
-- this equates to replacing a (simple but manual) export to `csv` with
-  additional complexity/dependencies in the data analysis R code.
-- data formatting best practice still apply.
-- Is there really a good reason why `csv` (or similar) is not
-  adequate?
+- alguns deles funcionam apenas no Windows.
+- isso equivale a substituir uma (simples mas manual) exportação para `csv` por
+  complexidade/dependências adicionais no código R da análise de dados.
+- ainda se aplicam as melhores práticas de formatação.
+- Existe realmente uma boa razão para o `csv` (ou semelhante) não ser
+  adequado?
 
-### Caveats on commas
+### Advertências sobre vírgulas
 
-In some datasets, the data values themselves may include commas
-(,). In that case, the software which you use (including Excel) will
-most likely incorrectly display the data in columns. This is because
-the commas which are a part of the data values will be interpreted as
-delimiters.
+Em alguns conjuntos de dados, os valores dos próprios dados podem incluir vírgulas
+(,). Nesse caso, o software que você utiliza (incluindo o Excel) irá provavelmente exibir
+de forma incorreta os dados em colunas. Isso é porque
+as vírgulas que fazem parte dos valores de dados serão interpretadas como
+delimitadores.
 
-For example, our data might look like this:
+Por exemplo, nossos dados podem parecer assim:
 
 ```
 species_id,genus,species,taxa
 AB,Amphispiza,bilineata,Bird
-AH,Ammospermophilus,harrisi,Rodent, not censused
-AS,Ammodramus,savannarum,Bird
-BA,Baiomys,taylori,Rodent
+AH,Ammospermophilus,harrisi,Rodent, não censurado
+AS,Ammodramus, avannarum, Ave
+BA, Baiomys,taylori, Rodent
 ```
 
-In the record `AH,Ammospermophilus,harrisi,Rodent, not censused` the
-value for `taxa` includes a comma (`Rodent, not censused`).  If we try
-to read the above into Excel (or other spreadsheet program), we will
-get something like this:
+No registro `AH,Ammospermofilus,harrisi,Rodent, não censused` o valor de
+para `taxa` inclui uma vírgula (`Rodent, not censused`).  Se tentarmos
+ler o arquivo acima em Excel (ou outro programa de planilha), obteremos
+algo parecido com isso:
 
 ```{r, results="markup", fig.cap="The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width="80%", fig.align="center"}
 knitr::include_graphics("fig/csv-mistake.png")
 ```
 
-The value for `taxa` was split into two columns (instead of being put
-in one column `D`). This can propagate to a number of further
-errors. For example, the extra column will be interpreted as a column
-with many missing values (and without a proper header). In addition to
-that, the value in column `D` for the record in row 3 (so the one
-where the value for 'taxa' contained the comma) is now incorrect.
+O valor de `taxa` foi dividido em duas colunas (em vez de ser colocado
+em uma coluna `D`). Isso pode propagar-se para uma série de outros
+erros. Por exemplo, a coluna extra será interpretada como uma coluna
+com muitos valores ausentes (e sem um cabeçalho adequado). Além de
+isso, o valor na coluna `D` para o registro na linha 3 (então o valor
+onde o valor de 'taxa' continha a vírgula) está agora incorreto.
 
-If you want to store your data in `csv` format and expect that your
-data values may contain commas, you can avoid the problem discussed
-above by putting the values in quotes (""). Applying this rule, our
-data might look like this:
+Se você quiser armazenar seus dados em formato `csv` e esperar que seus valores de dados
+possam conter vírgulas, você pode evitar o problema discutido
+acima colocando os valores nas aspas (""). Aplicando esta regra, os nossos dados
+podem ter o seguinte aspecto:
 
 ```
 species_id,genus,species,taxa
-"AB","Amphispiza","bilineata","Bird"
-"AH","Ammospermophilus","harrisi","Rodent, not censused"
-"AS","Ammodramus","savannarum","Bird"
-"BA","Baiomys","taylori","Rodent"
+"AB", "Amphispiza", "bilineata", "Bird"
+"AH", "Ammospermophilus", "harrisi", "Rodent, not censused"
+"AS", "Ammodramus", "savannarum", "Bird"
+"BA", "Baiomys", "taylori","Roedor"
 ```
 
-Now opening this file as a `csv` in Excel will not lead to an extra
-column, because Excel will only use commas that fall outside of
-quotation marks as delimiting characters.
+Agora, ao abrir este arquivo como `csv` no Excel, não vai aparecer uma coluna extra, porque o Excel só usa vírgulas fora das aspas
+como caracteres de delimitação.
 
-Alternatively, if you are working with data that contains commas, you
-likely will need to use another delimiter when working in a
-spreadsheet[^decsep]. In this case, consider using tabs as your delimiter and
-working with TSV files. TSV files can be exported from spreadsheet
-programs in the same way as CSV files.
+Em alternativa, se estiver trabalhando com dados que contenham vírgulas, é
+provável que tenha de utilizar outro delimitador quando trabalhar numa folha de cálculo
+[^decsep]. Neste caso, considere usar abas como seu delimitador e
+trabalhando com arquivos TSV. Arquivos TSV podem ser exportados a partir de planilhas
+programas da mesma forma que os arquivos CSV.
 
-[^decsep]: This is particularly relevant in European
-countries where the comma is used as a decimal
-separator. In such cases, the default value separator in a
-csv file will be the semi-colon (;), or values will be
-systematically quoted.
+[^decsep]: Isso é particularmente relevante nos países Europeus
+onde a vírgula é usada como separador decimal. Em tais casos, o separador de valor padrão em um arquivo
+csv será o ponto e vírgula (;), ou os valores serão
+sistematicamente citados.
 
-If you are working with an already existing dataset in which the data
-values are not included in "" but which have commas as both delimiters
-and parts of data values, you are potentially facing a major problem
-with data cleaning. If the dataset you're dealing with contains
-hundreds or thousands of records, cleaning them up manually (by either
-removing commas from the data values or putting the values into
-quotes - "") is not only going to take hours and hours but may
-potentially end up with you accidentally introducing many errors.
+Se você estiver trabalhando com um conjunto de dados já existente no qual os valores
+não estão incluídos em "" mas que tem vírgulas como delimitadores
+e partes de valores de dados, você está potencialmente enfrentando um grande problema
+na limpeza de dados. Se o conjunto de dados que você está lidando contiver
+centenas ou milhares de linhas, limpa-los manualmente (por
+remover vírgulas dos valores de dados ou colocar os valores em
+aspas - "") não só levará horas e horas, mas pode
+potencialmente acabar com você introduzindo acidentalmente muitos erros.
 
-Cleaning up datasets is one of the major problems in many scientific
-disciplines. The approach almost always depends on the particular
-context. However, it is a good practice to clean the data in an
-automated fashion, for example by writing and running a script. The
-Python and R lessons will give you the basis for developing skills to
-build relevant scripts.
+Limpeza de conjuntos de dados é um dos principais problemas de muitas disciplinas
+científicas. A abordagem quase sempre depende do contexto
+específico. No entanto, é uma boa prática limpar os dados de forma
+automatizada, por exemplo, escrevendo e executando um script. As lições
+de Python e R lhe darão a base para
+criar scripts relevantes.
 
-## Summary
+## Resumo
 
 ```{r analysis, results="asis", fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
 knitr::include_graphics("fig/analysis.png")
 ```
 
-A typical data analysis workflow is illustrated in the figure above,
-where data is repeatedly transformed, visualised, and modelled. This
-iteration is repeated multiple times until the data is understood. In
-many real-life cases, however, most time is spent cleaning up and
-preparing the data, rather than actually analysing and understanding
-it.
+Um fluxo de análise de dados típico é ilustrado na figura acima,
+onde os dados são repetidamente transformados, visualizados e modelos. Esta iteração
+é repetida várias vezes até os dados serem compreendidos. Em
+muitos casos da vida real, no entanto, a maioria do tempo é gasto limpando e
+preparando os dados, em vez de realmente os analisando.
 
-An agile data analysis workflow, with several fast iterations of the
-transform/visualise/model cycle is only feasible if the data is
-formatted in a predictable way and one can reason about the data
-without having to look at it and/or fix it.
+Um fluxo de trabalho de análise de dados ágeis, com várias iterações rápidas do ciclo
+transformar/visualizar/modelo só é possível se os dados forem
+formatados de forma previsível e se puderem raciocinar sobre os dados
+sem ter que olhar para eles e/ou corrigi-los.
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+:::::::::::::::::::::::::::::::::::::::: pontos-chave**
 
-- Good data organization is the foundation of any research project.
+- Uma boa organização dos dados é a base de qualquer projeto de pesquisa.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
