@@ -8,10 +8,10 @@ exercises: 0
 ```{r, include=FALSE}
 ```
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::::::::::::::::::::::::::::::::::::::: Objetivos
 
-- Describe the purpose of the RStudio Script, Console, Environment, and Plots panes.
-- Organise files and directories for a set of analyses as an R project, and understand the purpose of the working directory.
+- Descrever o propósito dos paineis do RStudio: Script, Console, Enviroment and Plots.
+- Organizar arquivos e diretórios para um conjunto de análises como um projeto R, e entender o propósito do diretório de trabalho.
 - Use the built-in RStudio help interface to search for more information on R functions.
 - Demonstrate how to provide sufficient information for troubleshooting with the R user community.
 
