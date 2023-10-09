@@ -31,13 +31,10 @@ e o *software* que interpreta os scripts com essa linguagem.
 
 [RStudio](https://rstudio.com) é atualmente uma forma muito popular não só de
 escrever os seus scripts R mas também de interagir com o software R
-[^plainr]. To function correctly, RStudio needs R and
-therefore both need to be installed on your computer.
+[^plainr]. Para funcionar corretamente, o RStudio necessita do R e ambos têm de estar instalados no seu computador.
 
-[^plainr]: As opposed to using R directly from the command line
-console. There exist other software that interface and integrate
-with R, but RStudio is particularly well suited for beginners
-while providing numerous very advanced features.
+[^plainr]: Ao invés de usar R diretamente do console. Existem outros softwares que fazem a interface e integram
+com o R, mas o RStudio é particularmente adequado para principiantes, ao mesmo tempo que oferece funcionalidades muito avançadas.
 
 The [RStudio IDE Cheat
 Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
