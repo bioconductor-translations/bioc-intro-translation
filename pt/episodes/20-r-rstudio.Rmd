@@ -12,26 +12,26 @@ exercises: 0
 
 - Descrever o propósito dos paineis do RStudio: Script, Console, Enviroment and Plots.
 - Organizar arquivos e diretórios para um conjunto de análises como um projeto R, e entender o propósito do diretório de trabalho.
-- Use the built-in RStudio help interface to search for more information on R functions.
-- Demonstrate how to provide sufficient information for troubleshooting with the R user community.
+- Utilize a interface de ajuda integrada do RStudio para procurar mais informações sobre as funções do R.
+- Demonstre como fornecer informações suficientes para solucionar problemas utilizando a comunidade de usuários do R.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+:::::::::::::::::::::::::::::::::::::::: perguntas
 
-- What are R and RStudio?
+- O que são o R e o RStudio?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## What is R? What is RStudio?
+## O que é o R? O que é RStudio?
 
-The term [R](https://www.r-project.org/) is used to refer to the
-*programming language*, the *environment for statistical computing*
-and *the software* that interprets the scripts written using it.
+O termo [R](https://www.r-project.org/) é utilizado para designar a
+*linguagem de programação*, o *ambiente de computação estatística*
+e o *software* que interpreta os scripts com essa linguagem.
 
-[RStudio](https://rstudio.com) is currently a very popular way to not
-only write your R scripts but also to interact with the R
-software[^plainr]. To function correctly, RStudio needs R and
+[RStudio](https://rstudio.com) é atualmente uma forma muito popular não só de
+escrever os seus scripts R mas também de interagir com o software R
+[^plainr]. To function correctly, RStudio needs R and
 therefore both need to be installed on your computer.
 
 [^plainr]: As opposed to using R directly from the command line
