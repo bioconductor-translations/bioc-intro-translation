@@ -1,0 +1,782 @@
+---
+source: Rmd
+título: Organização de dados em tabelas
+ensinando: 30
+exercícios: 30
+---
+
+```{r, FALSE}
+```
+
+::::::::::::::::::::::::::::::::::::::: objetivos
+
+- Aprenda sobre planilhas, seus pontos fortes e fraquezas.
+- Como formatamos dados em planilhas para o uso eficaz dos dados?
+- Aprenda sobre erros comuns da manipulação de planilhas e como corrigi-los.
+- Organize os seus dados de acordo com os princípios *tidy*.
+- Saiba mais sobre os formatos de planilhas, como as planilhas separadas por vírgulas (CSV) ou separadas por tabulações (TSV).
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: perguntas
+
+- Como organizar dados tabulares?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Programas de folhas de cálculo
+
+**Pergunta**
+
+- Quais são os princípios básicos para se utilizar tabelas para uma boa organização de seus dados
+  ?
+
+**Objetivo**
+
+- Descrever as melhores práticas de organização de dados para que os computadores possam os utilizar melhor.
+
+**Ponto-chave**
+
+- Uma boa organização dos dados é a base de qualquer projeto de pesquisa.
+
+Uma boa organização dos dados é a base do seu projeto de pesquisa. A maioria dos pesquisadores tem dados ou faz entrada de dados em
+formato de planilhas. Programas de análise de tabelas são interfaces
+gráficas muito úteis para projetar dados e lidar com funções e controle de qualidade. Ver também @Broman:2018.
+
+### O perfil da tabela
+
+Planilhas são boas para a inserção de dados. Portanto, temos muitos dados
+em planilhas.  Muito do seu tempo como pesquisador será gasto em
+desembaralhar seus dados e a forma como foram inseridos.  Não é o mais divertido, mas é
+necessário. Vamos te ensinar como pensar sobre organização de dados e
+algumas práticas para um melhor desembaraço dos dados.
+
+### O que esta aula não vai te ensinar
+
+- Como fazer *estatísticas* em uma planilha
+- Como *plotar figuras* a partir de uma planilha
+- Como *escrever código* em programas de planilha
+
+Se você está procurando fazer isso, uma boa referência é [Head First
+Excel](https://www. mazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
+publicado por O'Reilly.
+
+### Por que não podemos ensinar análises de dados em planilhas
+
+- Análise de dados em planilhas geralmente requerem muito trabalho manual. Se você alterar um parâmetro ou efetuar uma análise com um
+  novo conjunto de dados, normalmente terá de refazer tudo à mão. (Nós
+  sabemos que é posível criar macros, mas veja o próximo ponto)
+
+- Também é difícil rastrear ou reproduzir estatística ou plotar análises
+  feitas em planilhas quando você quiser voltar a
+  seu trabalho ou quando alguém pede detalhes da sua análise.
+
+Muitos programas para análise de tabelas estão disponíveis. Uma vez que a maioria dos participantes
+utiliza o Excel como o seu principal programa de análise de planilhas, esta lição
+utilizará exemplos do Excel. Um programa de análises de planilhas gratuito, que também pode ser usado
+é o LibreOffice. Os comandos podem diferir um pouco entre programas,
+mas a ideia geral é a mesma.
+
+Programas de análise de planilhas englobam muitas das coisas que precisamos ser capazes de
+ fazer como pesquisadores. Podemos usá-los para:
+
+- Submissão de dados
+- Organização de dados
+- Definição e classificação de dados
+- Estatística
+- Plotagem
+
+Programas para análise de planilhas utilizan tabelas para representar e exibir dados. Dados
+formatados como tabelas é também o tema principal deste capítulo, e
+veremos como organizar dados em tabelas de uma forma padronizada que
+garante uma análise a jusante eficiente.
+
+::::::::::::::::::::::::::::::::::::::: desafio
+
+## Desafio: Discuta os seguintes pontos com o seu colega
+
+- Já utilizou planilhas, na sua investigação, cursos,
+  ou em casa?
+- Que tipo de operações você faz em planilhas?
+- Para quais delas é que acha que as planilhas são boas?
+- Já fez algo acidentalmente num programa de analise de planilhas  que o deixou
+  frustrado ou triste?
+  
+
+::::::::::::::::::::::::::::::::::::::::::::
+
+### Problemas com planilhas
+
+As planilhas são boas para a entrada de dados. No entanto, tendemos a usar programas de análise de planilhas
+para muito mais do que a entrada de dados. Usamos elas
+para criar tabelas de dados para publicações, para gerar estatísticas
+sumarizadas e fazer figuras.
+
+Gerar tabelas para publicações em uma planilha não é
+ideal - frequentemente, ao formatar uma tabela de dados para publicação, Estamos
+relatando estatísticas chaves resumidas de uma forma que não é realmente para
+ser lida como dado, e muitas vezes envolve uma formatação especial
+(mesclando células, criando margens, tornando-a bonita). Aconselhamos que
+faça esse tipo de operação dentro do seu software de edição de documentos.
+
+As duas últimas aplicações, a geração de estatísticas e números,
+deve ser usada com cuidado: por causa da natureza gráfica dos programas, arrastar e soltar, pode ser muito difícil, se não impossível, se quiser repetir seus movimentos (e para qualquer outra pessoa reproduzir), particularmente se suas estatísticas
+ou números exigem que você faça cálculos mais complexos. Além disso,
+ao efetuar cálculos numa planilha, é fácil aplicar acidentalmente uma
+fórmula ligeiramente diferente a várias células adjacentes. Quando se utiliza um programa de estatística baseado na linha de comandos
+como o R ou o SAS, é praticamente
+impossível aplicar um cálculo a uma observação no seu conjunto de dados
+mas não a outra, a menos que o faça de propósito.
+
+### Utilização de planilhas para introdução e limpeza de dados
+
+Nesta lição, vamos assumir que provavelmente está utilizando o Excel como
+o seu programa de planilhas principal - existem outros (gnumeric, Calc
+do OpenOffice), e a sua funcionalidade é semelhante, mas o Excel parece
+ser o programa mais utilizado por biólogos e biomédicos.
+
+Nesta aula vamos falar sobre:
+
+1. Formatando tabelas de dados em planilhas
+2. Problemas de formatação
+3. Exportar dados
+
+## Formatar tabelas de dados em planilhas
+
+**Perguntas**
+
+- Como formatar dados em planilhas para uma utilização eficaz dos dados?
+
+**Objectivos**
+
+- Descrever as melhores práticas para a introdução de dados e formatação em planilhas.
+
+- Aplicar as melhores práticas para organizar variáveis e observações em uma planilha.
+
+**Pontos-chave**
+
+- Nunca modifique os seus dados brutos. Sempre fazer uma cópia antes de fazer quaisquer alterações.
+
+- Mantenha o controle de todas as etapas que você tomar para limpar seus dados em um arquivo
+  de texto simples.
+
+- Organize os seus dados de acordo com os princípios *tidy*.
+
+O erro mais comum cometido é tratar programas de análise de planilha como cadernos de
+laboratórios, ou seja, dependendo do contexto, notas na margem, layout espacial
+de dados e campos para transmitir informações. Como seres humanos, podemos
+(normalmente) interpretar estas coisas, mas os computadores não vêem a informação
+da mesma forma e, a menos que expliquemos ao computador o que cada
+coisa significa (e isso pode ser difícil!), ele não será capaz de ver como
+os dados se encaixam.
+
+Utilizando o poder dos computadores, podemos gerir e analisar dados de formas muito
+mais eficazes e rápidas, mas para utilizar esse poder, temos de
+configurar os nossos dados para que o computador os possa compreender (e
+os computadores são muito literais).
+
+É por isso que é extremamente importante criar tabelas bem formatadas
+desde o início - antes mesmo de começar a introduzir os dados da sua
+primeira experiência. Uma boa organização dos dados é a base do seu projeto de pesquisa. Ela pode tornar mais fácil ou mais difícil trabalhar com
+os seus dados ao longo da análise, assim vale a pena pensar nisso quando
+estiver introduzindo os dados ou a preparar a experiência. Você pode
+configurar as coisas de formas diferentes em planilhas, mas algumas destas
+opções podem limitar sua capacidade de trabalhar com os dados de outros programas
+ou limitar o você de daqui há 6 meses e o seu colaborador de trabalhar com
+os dados.
+
+**Nota: Os melhores layouts/formatos (bem como o software e as interfaces) para a introdução e análise de dados podem ser diferentes. É
+importante ter isso em conta e procurar automatizar a conversão
+de um para outro.
+
+### Mantendo o controle de suas análises
+
+Quando você está trabalhando com planilhas, durante a limpeza de dados ou análises, É muito fácil acabar com uma planilha que parece bem
+diferente daquela com que você começou. Para ser capaz de
+reproduzir suas análises ou descobrir o que você fez quando um revisor ou um instrutor
+pede uma análise diferente você deve
+
+- criar um novo arquivo com seus dados limpos ou analisados. Não modifique
+  o conjunto de dados original, ou você nunca saberá por onde começou!
+
+- mantenha um registo dos passos que deu na sua limpeza ou análise. Você
+  deve acompanhar estes passos como você faria em passos de um experimento de bancada. Nós
+  recomendamos que você faça isso em um arquivo de texto simples armazenado na mesma pasta
+  do arquivo de dados.
+
+Este pode ser um exemplo de configuração de uma planilha:
+
+![](fig/spreadsheet-setup-updated.png)
+
+Coloque esses princípios para praticar hoje mesmo durante seus exercícios.
+
+Enquanto o controle de versão está fora de escopo, você pode ver a aula
+do Carpentries em
+['Git'](https://swcarpentry. ithub.io/git-novice/) para aprender como
+manter um **controle de versão** sobre seus dados. Veja também este [blog
+post](https://lgatto.github.io/github-intro/) para um tutorial rápido, ou
+@Perez-Riverol:2016 para um exemplo mais voltado à pesquisa.
+
+### Estrutura de dados em planilhas
+
+As regras de usar programas de planilha para análise de dados
+
+1. Coloque todas as suas variáveis em colunas - a coisa que você está medindo,
+  como 'peso' ou 'temperatura'.
+2. Coloque cada observação em sua própria linha.
+3. Não combina várias informações em uma só célula. Às vezes
+  parece apenas uma coisa, mas pense se essa é a única maneira
+  você vai conseguir usar ou ordenar esses dados.
+4. Deixe os dados brutos, brutos - não mude!
+5. Exportar os dados limpos para um formato baseado em texto, como o formato CSV
+  (valores separados por vírgula). Isso garante que qualquer pessoa possa usar
+  os dados e é exigido pela maioria dos repositórios de dados.
+
+Por exemplo, temos dados de pacientes que visitaram vários hospitais
+em Bruxelas, Bélgica. Eles registraram a data da visita,
+o hospital, o gênero, o peso e o grupo sanguíneo dos pacientes.
+
+Se mantivéssemos o controle dos dados como este:
+
+![](fig/multiple-info. ng)
+
+o problema é que os grupos ABO e Rhesus estão na mesma coluna de tipo `Blood`
+. Então, se eles quiserem ver todas as observações do grupo A
+ou ver as distribuições de peso por grupo ABO, seria complicado
+fazer isso usando essa configuração de dados. Em vez disso, se colocarmos os grupos ABO e Rhesus
+em colunas diferentes, você poderá ver que isso seria muito mais fácil.
+
+![](fig/single-info. ng)
+
+Uma regra importante ao criar uma ficha técnica, é que **colunas são
+usadas para variáveis** e **linhas são usadas para observações**:
+
+- colunas são variáveis
+- linhas são observações
+- células são valores individuais
+
+::::::::::::::::::::::::::::::::::::::: challenge
+
+## Desafio: Vamos pegar um conjunto de dados confuso e descrever como limpá-lo.
+
+1. Baixe um conjunto de dados bagunçado clicando em
+  [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
+
+2. Abra os dados em um programa de planilha.
+
+3. Podemos ver que existem duas abas. Os dados contêm diversas
+  variáveis clínicas registadas em vários hospitais de Bruxelas durante
+  a primeira e a segunda ondas da COVID-19 em 2020. Como se pode ver, os dados de
+  foram registados de forma diferente durante as ondas de Março e Novembro. Agora você é a pessoa responsável por este projeto e você quer
+  poder começar a analisar os dados.
+
+4. Com a pessoa ao seu lado, identifique o que há de errado com esta planilha. Também discuta os passos que você precisa dar para limpar
+  as abas associadas à primeira e à segunda ondas, e para colocá-los todos juntos em uma planilha.
+
+**Importante:** Não se esqueça do nosso primeiro conselho: criar um
+novo arquivo (ou aba) para os dados limpos, nunca modificar os dados originais
+(brutos).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Depois de fazeres este exercício, discutiremos em grupo o que estava
+errado com estes dados e como o corrigirias.
+
+<!-- - Leve cerca de 10 minutos para trabalhar neste exercício. -->
+
+<!-- - Todos os erros na seção *erros comuns* abaixo estão presentes -->
+
+<!-- no conjunto de dados bagunçado. Se o exercício for feito durante um oficina, pergunte -->
+
+<!-- pessoas o que elas viram de errado com os dados. À medida que eles levantam -->
+
+<!-- diferentes pontos, você pode referir-se aos erros comuns ou expandir a
+
+<! - a questão que levantaram. -->
+
+<!-- - Se você receber uma resposta onde eles consertaram a data, você pode pausar -->
+
+<! - e ir para o conteúdo associado a  datas. Ou você pode dizer que voltará a datas -->
+
+<!-- no final. -->
+
+::::::::::::::::::::::::::::::::::: desafio
+
+## Desafio: Uma vez que organizou todos os dados, Responda às seguintes perguntas:
+
+- Quantos homens e mulheres participaram nos estudos?
+- Quantos de tipo sanguíneo A, AB e B foram testados?
+- Tal como acima referido, mas ignorando as amostras contaminadas?
+- Quantos Rhesus + e - foram testados?
+- Quantos doadores universais (O-) foram testados?
+- Qual é o peso médio dos homens de tipo sanguíneo AB?
+- Quantas amostras foram testadas nos diferentes hospitais?
+  
+
+::::::::::::::::::::::::::::::::::::::::::
+
+Um **excelente referência**, em particular no que diz respeito a R scripting
+é o papel do *Tidy Data* @Wickham:2014.
+
+## Erros comuns de planilhas
+
+**Questões**
+
+- Quais são alguns desafios comuns com a formatação de dados em planilhas
+  e como podemos evitá-los?
+
+**Objetivos**
+
+- Reconhecer e resolver problemas comuns de formatação de planilha.
+
+**Keypoints**
+
+- Evite usar várias tabelas dentro de uma planilha.
+- Evite espalhar dados em várias abas.
+- Registre zeros como zeros.
+- Use um valor nulo apropriado para gravar dados faltantes.
+- Não use a formatação para transmitir informações ou para deixar sua planilha bonita.
+- Coloque comentários em uma coluna separada.
+- Registar unidades (de medida) nos cabeçalhos das colunas.
+- Inclua apenas uma informação em uma célula.
+- Evite espaços, números e caracteres especiais nos cabeçalhos de coluna.
+- Evite caracteres especiais em seus dados.
+- Gravar metadados em um arquivo de texto simples separado.
+
+<!-- Esta lição destina-se a ser usada como referência para discussão de como -->
+
+<! - os alunos identificam problemas com os dados bagunçados discutido na -->
+
+<!-- lição anterior. Instrutores: não passe por esta aula exceto para se referir -->
+
+<!-- as respostas do exercício na lição anterior. -->
+
+Há alguns erros potenciais a serem encontrados nos dados, bem como nos dados de colaboradores ou na internet. Se você esta
+ciente dos erros e do possível efeito negativo na análise e interpretação de resultados a jusante, isso pode servir de motivação para você e para
+os membros do seu projeto para tentar evitá-los. Fazendo pequenas alterações
+na forma como você formata seus dados em planilhas pode ter um grande
+impacto na eficiência e confiabilidade na limpeza de dados
+e análise.
+
+- [Utilizar várias tabelas](#tables)
+- [Utilizar várias abas](#tabs)
+- [Não preencher zeros](#zeros)
+- [Utilizar valores nulos problemáticos](#null)
+- [Utilizar formatação para transmitir informações](#formatting)
+- [Utilizar formatação para tornar a folha de dados bonita](#formatting_pretty)
+- [Colocar comentários ou unidades nas células](#units)
+- - [Introduzir mais do que uma informação na célula](#info) [Introduzir mais do que uma informação numa célula](#info)
+- [Utilizar nomes de campos problemáticos](#nome_do_campo)
+- [Utilizar caracteres especiais nos dados](#especial)
+- [Inclusão de metadados na tabela de dados](#metadados)
+
+### Utilizar várias tabelas {#tables}
+
+Uma estratégia comum é criar várias tabelas em uma mesma planilha. Isso confunde o computador, então não faça isso!  Quando você
+cria múltiplas tabelas dentro de uma planilha, você está desenhando falsas
+associações entre as coisas para o computador, que vê cada linha como
+uma observação. Você também está potencialmente usando o mesmo nome em
+múltiplos lugares, o que dificultará a limpeza de seus dados em
+um formulário utilizável. O exemplo abaixo retrata o problema:
+
+![](fig/2_datasheet_example. pg)
+
+No exemplo acima, o computador verá a linha 4 e
+assumem que todas as colunas A-AF se referem à mesma amostra. Esta linha
+representa na verdade quatro amostras distintas (amostra 1 para cada uma das
+datas diferentes de coleção - dia 29 de maio, 12 de junho, 19 de junho, e
+26 de junho), assim como algumas estatísticas calculadas uma média (avr)
+e um erro padrão (SEM) para duas dessas amostras. Outras linhas da planilha são igualmente problemáticas.
+
+### Usando várias abas {#tabs}
+
+Mas e sobre as abas da planilha? Essa parece uma maneira fácil de organizar
+dados, certo? Bem, sim e não. Quando você criar abas extras, você impede que o computador veja conexões nos dados que existem (você
+tem que introduzir funções específicas em uma planilha ou o script
+para garantir essa conexão). Digamos, por exemplo, que faz uma
+aba para cada dia de medição.
+
+Esta não é uma boa prática por duas razões:
+
+1. você tem mais probabilidade de adicionar inconsistências acidentalmente aos seus dados
+  se cada vez que fizer uma medida, você adicionar os resultados 
+  em uma nova aba, e
+
+2. mesmo se você conseguir evitar que todas as inconsistências entrem, 
+  você irá adicionar um passo extra antes de analisar os dados
+  pois terá que combinar esses dados em um único
+  dataset. Você terá que dizer explicitamente ao computador como
+  combinar as abas - e se as abas forem formatadas de forma inconsistente, você
+  talvez tenha até que combiná-las manualmente.
+
+Na próxima vez que você estiver inserindo dados, e pense em criar outra aba
+ou tabela, Pergunte se você poderia evitar adicionar esta aba adicionando
+outra coluna à sua planilha original. Usamos várias abas em
+nosso exemplo de um arquivo de dados confuso, mas agora você viu como pode
+reorganizar seus dados para os consolidar através de abas.
+
+Sua planilha pode ficar muito longa durante o experimento. Isso dificulta a entrada de dados se você não consegue ver os cabeçalhos
+no topo da planilha. Mas não repita a sua linha de
+cabeçalho. Ele pode facilmente se misturar com os dados, levando a problemas
+ao longo da análise. Em vez disso, você pode [congelar a coluna
+cabeçalho](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
+para que elas permaneçam visíveis mesmo quando você tiver uma planilha com muitas linhas.
+
+### Não preencher zeros {#zeros}
+
+Pode ser que quando você estiver medindo algo, o resultado é um zero,
+como o número de vezes que um coelho é observado na pesquisa. Porquê dar-se ao trabalho de
+escrever o número zero nessa coluna, quando a maior parte serão zeros?
+
+No entanto, há uma diferença entre uma célula com um zero e uma célula em branco em uma planilha. Para o computador, um zero é de fato um dado. Você teve informações sobre ele e o mediu. Uma célula em branco significa que a informação não foi medida e o computador
+irá interpretá-la como um valor desconhecido (também conhecido como um valor
+nulo ou valor faltando).
+
+As planilhas ou programas estatísticos provavelmente interpretarão erradamente
+células em branco que você pretende deveriam ser zeros. Ao não inserir o valor de
+sua observação, você está dizendo ao seu computador para representar esses dados
+como desconhecido ou faltando (nulos ou null). Isso pode causar problemas com cálculos ou análises posteriores. Por exemplo, a média de um conjunto de números
+que inclui um único valor nulo é sempre nulo (porque o computador
+não consegue adivinhar o valor das observações que faltam). Porque
+disso é muito importante gravar zeros como zeros e os
+dados ausentes como nulos.
+
+### Usando valores nulos problemáticos {#null}
+
+**Exemplo**: usando -999 ou outros valores numéricos (ou zero) para
+representa dados faltantes.
+
+**Soluções**:
+
+Existem algumas razões pelas quais valores nulos são representados de forma diferente
+dentro de um conjunto de dados. Às vezes, valores nulos confusos são automaticamente
+gravados a depender do dispositivo de medição. Se for esse o caso, não há
+muito que se possa fazer, mas pode ser resolvido na limpeza de dados com uma ferramenta
+como
+[OpenRefine](https://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+antes da análise. Outras vezes valores nulos diferentes são usados para transmitir
+diferentes razões porque os dados não estão lá. Essa é uma informação
+importante para capturar, mas está em vigor usando uma coluna para capturar
+dois tipos de informação diferentes. Assim como para [usando formatação para transmitir informação](#formatting) seria bom aqui criar uma nova coluna
+como 'data\_missing' e usar essa coluna para capturar as diferentes razões para o dado ser nulo.
+
+Seja qual for a razão, é um problema se dados desconhecidos ou ausentes são
+registrados como -999, 999 ou 0.
+
+Muitos programas estatísticos não reconhecerão que esses valores se destinam a
+a representar valores (null) ausentes. A forma como esses valores são interpretados
+dependerá do software que você usa para analisar seus dados. É
+essencial usar um indicador de dados nulos claramente definido e consistente.
+
+Espaços em branco (maioria dos aplicativos) e NA (para R) são boas
+escolhas. @White:2013 explica boas escolhas para indicar valores nulos
+para diferentes aplicações de software no seu artigo:
+
+![](fig/3_white_table_1.jpg)
+
+### Utilizar a formatação para transmitir informação {#formatting}
+
+**Exemplo**: destacar células, linhas ou colunas que devem ser
+excluídas de uma análise, deixando linhas em branco para indicar
+separações nos dados.
+
+![](fig/formatting.png)
+
+**Solução**: crie um novo campo para identificar quais dados devem ser excluídos.
+
+![](fig/good_formatting.png)
+
+### Usando formatação para fazer a folha de dados parecer {#formatting\_pretty}
+
+**Exemplo**: mesclando células.
+
+**Solução**: se você não for cuidadoso, formatar uma tabela para ser mais
+esteticamente agradável pode comprometer a capacidade do seu computador de identificar
+associações nos dados. As células fundidas tornarão os seus dados ilegíveis
+por softwares estatístico. Considere a reestruturação de seus dados de forma a
+que você não precisará mesclar/combinar células para organizar seus dados.
+
+### Colocar comentários ou unidadesde medida nas células {#units}
+
+A maioria dos softwares de análise não pode ver comentários do Excel ou do LibreOffice, e
+fica confuso com os comentários colocados em suas células de dados. Como o
+descrito acima para a formatação, crie outro campo se você precisar
+adicionar anotações a uma linha. Da mesma forma, não inclua unidades de medida nas células: idealmente,
+todas as medidas que se coloca numa coluna devem estar na mesma unidade, mas se por alguma razão não estiverem, crie outro campo e
+especifique as unidades em que a célula está.
+
+### Colocando em mais de um pedaço de informação em uma única célula {#info}
+
+**Exemplo**: Gravação de grupos ABO e Rhesus em uma célula, como A+,
+B+, A-, ...
+
+**Solução**: Não incluir mais do que uma informação numa célula. Isso limitará as maneiras pelas quais você pode analisar seus dados.  Se
+precisar destas duas medidas, crie sua tabela para incluir
+estas informações. Por exemplo, inclua uma coluna para o grupo ABO e
+uma para o grupo Rhesus.
+
+### Usando nomes de campos problemáticos {#field\_name}
+
+Escolha nomes de coluna descritivos, mas tenha cuidado para não incluir espaços,
+números ou caracteres especiais de qualquer tipo. Os espaços podem ser
+mal interpretados por analisadores que utilizam espaços em branco como delimitadores e alguns programas
+não gostam de nomes de campos que são cadeias de texto que começam com
+números.
+
+Os sublinhados (`_`) são uma boa alternativa aos espaços. Considere escrever
+nomes de forma as palavras se separarem por letras maiúsculas (como este: ExampleFileName) para melhorar a legibilidade. Lembre-se que as abreviações que fazem sentido no momento
+podem não ser tão óbvias em 6 meses, mas não exagere com nomes que
+são excessivamente longos. Incluindo as unidades de medida no campo os nomes evitam
+confusão e permitem que outros interpretem prontamente suas colunas.
+
+**Exemplos**
+
+| Bom nome | Boa alternativa | Evitar | 
+| ---------------- | ----------------- | ----------------- |
+| Max\_temp\_C | MaxTemp | Temperatura máxima (°C) | 
+| Precipitação\_mm | Precipitação | precmm | 
+| Media\_ano\_crescimento | MediaAnoCrescimento| Crescimento médio/ano | 
+| sexo | sexo | M/F | 
+| peso | peso w.                | 
+| celula\_tipo | CelulaTipo | Tipo Celular | 
+| Observacao\_01 | primeira\_observacao | 1st Obs | 
+
+### Utilizar caracteres especiais nos dados {#special}
+
+**Exemplo**: O programa de planilhas é tratado como um processador de texto
+quando escreve notas, por exemplo, copiando dados diretamente do Word ou de
+outras aplicações.
+
+**Solução**: Essa é uma estratégia comum. Por exemplo, ao escrever
+mais texto em uma célula, as pessoas muitas vezes incluem quebras de linha, e-dashes,
+etc. em sua planilha. Além disso, ao copiar dados de
+aplicações como Word, caracteres de formatação e 
+não-padrão (tais como aspas alinhadas à esquerda e à direita) estão
+incluídos. Ao exportar esses dados para um ambiente de codificação/estatística
+ou em um banco de dados, coisas perigosas podem ocorrer,
+como linhas sendo cortadas ao meio e os erros de codificação são lançados.
+
+As melhores práticas gerais são evitar a adição de caracteresextras como novas linhas, abas e colunas. Em outras palavras, trate uma célula de texto como se
+fosse um simples formulário online que pode conter apenas texto e espaços.
+
+### Inclusão de metadados na tabela {#metadata}
+
+**Exemplo**: Adiciona uma legenda na parte superior ou inferior da sua tabela de dados
+explicando o significado da coluna, unidades, exceções, etc.
+
+**Solução**: O registo de dados sobre os seus dados ("metadados") é
+essencial. Mesmo que você conheça muito bem seus dados enquanto os coleta e analisa, as chances de que você lembrará que a variável "sglmemgp" significa cada membro de um grupo, ou o exato algorítimo usado diminuem com o passar dos mêses.
+
+Também existem muitas razões pelas quais outras pessoas podem querer examinar ou
+usar seus dados - para entender suas descobertas, para verificar suas descobertas,
+para rever uma publicação submetida, para replicar seus resultados, para
+projetar um estudo semelhante, ou até mesmo para arquivar seus dados para acesso e
+reutiliza-los. Embora os dados sejam, por definição,
+legíveis por máquinas, a compreensão do seu significado é uma tarefa para humanos. A importância de documentar os seus dados durante a fase de coleta
+e análise da sua investigação não pode ser subestimada,
+especialmente se a sua investigação for fazer parte do registo académico.
+
+No entanto, os metadados não devem estar contidos no arquivo de dados
+em si. Ao contrário de uma tabela em um papel ou um arquivo suplementar metadados (em forma de legendas) não devem ser incluídos em um arquivo de dados já que esta informação
+não é de dados, e incluir isso pode interromper como o computador interpreta seu arquivo de dados. Em vez disso, os metadados devem ser armazenados
+como um arquivo separado, no mesmo diretório do seu arquivo de dados de preferência,
+em formato de texto simples com um nome que claramente o associa ao seu arquivo de dados. Como arquivos de metadados são no formato de texto livre, eles também
+permitem que você adicione comentários, unidades, informações sobre como valores nulos
+são codificados, etc. Informações que são importantes na documentação, mas podem interromper a formatação
+do seu arquivo de dados.
+
+Além disso, os metadados do arquivo ou do banco de dados descrevem como arquivos que
+compõem o conjunto de dados se relacionam entre si; em que formato eles estão; e
+se eles superpõe ou são substituídos por arquivos anteriores. Um arquivo readme.txt
+presente na pasta é a maneira clássica de contabilizar todos os arquivos e pastas
+em um projeto.
+
+(Texto sobre metadados adaptados do curso Pesquisa Dados
+[MANTRA](https://datalib.edina.ac.uk/mantra) pela EDINA e Biblioteca de Dados,
+Universidade de Edinburgh. MANTRA está licenciado sob uma [Creative Commons
+Atribuição 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/).)
+
+## Exportando dados
+
+**Pergunta**
+
+- Como podemos exportar dados de planilhas de uma forma que seja útil para
+ os aplicativos a jusante?
+
+**Objetivos**
+
+- Armazene dados das planilha em formatos de arquivo universais.
+- Exportar dados de uma planilha para um arquivo CSV.
+
+**Pontos-chave**
+
+- Os dados armazenados em formatos de planilha comuns não serão muitas vezes lidos
+  corretamente nos softwares de análise de dados, introduzindo erros.
+
+- A exportação de dados de planilhas para formatos como CSV ou TSV os coloca
+  em um formato que pode ser usado consistentemente pela maioria dos programas.
+
+Armazenando os dados com os quais você trabalhará para suas análises no formato de arquivo Excel
+padrão (`*. ls` or `*.xlsx` - dependendo da versão do Excel) não é uma boa ideia. Por quê?
+
+- Porque é um formato proprietário, e é possível que no futuro, essa tecnologia não existirá (ou se tornará suficientemente rara) para
+  torná-la inconveniente, se não for impossível, de abrir o arquivo.
+
+- Outro software de planilha pode não ser capaz de abrir arquivos salvos em um formato
+  proprietário do Excel.
+
+- Diferentes versões do Excel podem tratar os dados de forma diferente, levando a inconsistências. [Dates](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
+  é um exemplo bem documentado de inconsistências no armazenamento de dados.
+
+- Por último, cada vez mais revistas e agências de financiamento exigem que
+  deposite os seus dados num repositório de dados, e a maioria deles não aceita o formato Excel. Ele precisa estar em um dos formatos discutidos
+  abaixo.
+
+- Os pontos acima também se aplicam a outros formatos como formatos de dados abertos
+  usados pelo LibreOffice / Open Office. Estes formatos não são
+  estáticos e não são analisados da mesma maneira por diferentes softwares
+ ou pacotes.
+
+Armazenar dados em um formato universal, aberto e estático ajudará a lidar com este problema. Tente formatos delimitado por tabulações (valores separados por tabulação ou TSV) ou
+delimitado por vírgulas (valores separados por vírgula ou CSV). Arquivos CSV são arquivos com texto
+simples onde as colunas são separadas por vírgulas, portanto 'vírgula
+separam valores' ou CSV (do inglês, comma separated files). A vantagem de um arquivo CSV em um
+Excel/SPSS/etc. é que podemos abrir e ler um arquivo CSV usando
+praticamente qualquer software, incluindo editores de texto simples como TextEdit ou
+NotePad. Os dados em um arquivo CSV também podem ser facilmente importados para outros formatos
+e ambientes, como SQLite e R. Nós não estamos vinculados a uma determinada versão
+de um certo programa caro quando trabalhamos com arquivos CSV
+então é um bom formato trabalhar com o máximo de portabilidade e resistência. A maioria dos programas de planilha pode delimitar textos
+formatos como CSV facilmente, embora eles possam dar a você um aviso durante
+a exportação do arquivo que o formato original será perdido.
+
+Para salvar um arquivo que você abriu em Excel no formato CSV:
+
+1. No menu superior selecione 'Arquivo' e 'Salvar como'.
+2. No campo "Formato", selecione da lista "Comma Separated
+  Values" (`*.csv`).
+3. Verifique o nome do arquivo e o local onde você quer salvar-lo e pressione 'Salvar'.
+
+Uma nota importante para compatibilidade retroativa: você pode abrir os arquivos CSV
+em Excel!
+
+```{r, results="markup", fig.cap="Saving an Excel file to CSV.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/excel-to-csv.png")
+```
+
+**Uma nota em R e `xls`**: Existem pacotes R que podem ler arquivos `xls`
+(bem como Google spreadsheets). É até possível acessar
+diferentes abas nos documentos 'xls'.
+
+**Mas**
+
+- alguns deles funcionam apenas no Windows.
+- isso equivale a substituir uma (simples mas manual) exportação para `csv` por
+  complexidade/dependências adicionais no código R da análise de dados.
+- ainda se aplicam as melhores práticas de formatação.
+- Existe realmente uma boa razão para o `csv` (ou semelhante) não ser
+  adequado?
+
+### Advertências sobre vírgulas
+
+Em alguns conjuntos de dados, os valores dos próprios dados podem incluir vírgulas
+(,). Nesse caso, o software que você utiliza (incluindo o Excel) irá provavelmente exibir
+de forma incorreta os dados em colunas. Isso é porque
+as vírgulas que fazem parte dos valores de dados serão interpretadas como
+delimitadores.
+
+Por exemplo, nossos dados podem parecer assim:
+
+```
+species_id,genus,species,taxa
+AB,Amphispiza,bilineata,Bird
+AH,Ammospermophilus,harrisi,Rodent, não censurado
+AS,Ammodramus, avannarum, Ave
+BA, Baiomys,taylori, Rodent
+```
+
+No registro `AH,Ammospermofilus,harrisi,Rodent, não censused` o valor de
+para `taxa` inclui uma vírgula (`Rodent, not censused`).  Se tentarmos
+ler o arquivo acima em Excel (ou outro programa de planilha), obteremos
+algo parecido com isso:
+
+```{r, results="markup", fig.cap="The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics("fig/csv-mistake.png")
+```
+
+O valor de `taxa` foi dividido em duas colunas (em vez de ser colocado
+em uma coluna `D`). Isso pode propagar-se para uma série de outros
+erros. Por exemplo, a coluna extra será interpretada como uma coluna
+com muitos valores ausentes (e sem um cabeçalho adequado). Além de
+isso, o valor na coluna `D` para o registro na linha 3 (então o valor
+onde o valor de 'taxa' continha a vírgula) está agora incorreto.
+
+Se você quiser armazenar seus dados em formato `csv` e esperar que seus valores de dados
+possam conter vírgulas, você pode evitar o problema discutido
+acima colocando os valores nas aspas (""). Aplicando esta regra, os nossos dados
+podem ter o seguinte aspecto:
+
+```
+species_id,genus,species,taxa
+"AB", "Amphispiza", "bilineata", "Bird"
+"AH", "Ammospermophilus", "harrisi", "Rodent, not censused"
+"AS", "Ammodramus", "savannarum", "Bird"
+"BA", "Baiomys", "taylori","Roedor"
+```
+
+Agora, ao abrir este arquivo como `csv` no Excel, não vai aparecer uma coluna extra, porque o Excel só usa vírgulas fora das aspas
+como caracteres de delimitação.
+
+Em alternativa, se estiver trabalhando com dados que contenham vírgulas, é
+provável que tenha de utilizar outro delimitador quando trabalhar numa folha de cálculo
+[^decsep]. Neste caso, considere usar abas como seu delimitador e
+trabalhando com arquivos TSV. Arquivos TSV podem ser exportados a partir de planilhas
+programas da mesma forma que os arquivos CSV.
+
+[^decsep]: Isso é particularmente relevante nos países Europeus
+onde a vírgula é usada como separador decimal. Em tais casos, o separador de valor padrão em um arquivo
+csv será o ponto e vírgula (;), ou os valores serão
+sistematicamente citados.
+
+Se você estiver trabalhando com um conjunto de dados já existente no qual os valores
+não estão incluídos em "" mas que tem vírgulas como delimitadores
+e partes de valores de dados, você está potencialmente enfrentando um grande problema
+na limpeza de dados. Se o conjunto de dados que você está lidando contiver
+centenas ou milhares de linhas, limpa-los manualmente (por
+remover vírgulas dos valores de dados ou colocar os valores em
+aspas - "") não só levará horas e horas, mas pode
+potencialmente acabar com você introduzindo acidentalmente muitos erros.
+
+Limpeza de conjuntos de dados é um dos principais problemas de muitas disciplinas
+científicas. A abordagem quase sempre depende do contexto
+específico. No entanto, é uma boa prática limpar os dados de forma
+automatizada, por exemplo, escrevendo e executando um script. As lições
+de Python e R lhe darão a base para
+criar scripts relevantes.
+
+## Resumo
+
+```{r analysis, results="asis", fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("fig/analysis.png")
+```
+
+Um fluxo de análise de dados típico é ilustrado na figura acima,
+onde os dados são repetidamente transformados, visualizados e modelos. Esta iteração
+é repetida várias vezes até os dados serem compreendidos. Em
+muitos casos da vida real, no entanto, a maioria do tempo é gasto limpando e
+preparando os dados, em vez de realmente os analisando.
+
+Um fluxo de trabalho de análise de dados ágeis, com várias iterações rápidas do ciclo
+transformar/visualizar/modelo só é possível se os dados forem
+formatados de forma previsível e se puderem raciocinar sobre os dados
+sem ter que olhar para eles e/ou corrigi-los.
+
+:::::::::::::::::::::::::::::::::::::::: pontos-chave**
+
+- Uma boa organização dos dados é a base de qualquer projeto de pesquisa.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
