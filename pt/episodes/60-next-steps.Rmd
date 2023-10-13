@@ -29,106 +29,91 @@ exercícios: 45
 library("tidyverse")
 ```
 
-Os dados em bioinformática são muitas vezes complexos.  To deal with this,
-developers define specialised data containers (termed classes) that
-match the properties of the data they need to handle.
+Os dados em bioinformática são muitas vezes complexos.  Para lidar com este problema, os programadores de
+definem contentores de dados especializados (denominados de classes) que correspondem às propriedades dos dados que necessitam ser manipulados.
 
-This aspect is central to the **Bioconductor**[^Bioconductor] project
-which uses the same **core data infrastructure** across packages. This
-certainly contributed to Bioconductor's success. Bioconductor package
-developers are advised to make use of existing infrastructure to
-provide coherence, interoperability, and stability to the project as a
-whole.
+Este aspeto é fundamental para o projeto do **Bioconductor**[^Bioconductor] que utiliza a mesma **infraestrutura de dados central** em todos os pacotes. Esta estrutura contribuiu certamente para o sucesso do Bioconductor. Os programadores de pacotes do Bioconductor
+são aconselhados a utilizar a infraestrutura existente para
+proporcionar coerência, interoperabilidade e estabilidade ao projeto como um todo.
 
-[^Bioconductor]: The [Bioconductor](https://www.bioconductor.org) was
-    initiated by Robert Gentleman, one of the two creators of the R
-    language. Bioconductor provides tools dedicated to omics data
-    analysis. Bioconductor uses the R statistical programming language
-    and is open source and open development.
+[^Bioconductor]: O [Bioconductor](https://www.bioconductor.org) foi iniciado por Robert Gentleman, um dos dois criadores da linguagem R. O Bioconductor fornece ferramentas dedicadas a análise de dados ômicos. O Bioconductor utiliza a linguagem de programação estatística R e tem o código e o desenvolvimento aberto.
 
-To illustrate such an omics data container, we'll present the
-`SummarizedExperiment` class.
+Para ilustrar um contêiner de dados ômicos, apresentaremos a classe
+`SummarizedExperiment`.
 
 ## SummarizedExperiment
 
-The figure below represents the anatomy of the SummarizedExperiment class.
+A figura abaixo representa a anatomia da classe SummarizedExperiment.
 
 ```{r SE, echo=FALSE, out.width="80%"}
 knitr::include_graphics("https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg")
 ```
 
-Objects of the class SummarizedExperiment contain :
+Os objectos da classe SummarizedExperiment contêm :
 
-- **One (or more) assay(s)** containing the quantitative omics data
-  (expression data), stored as a matrix-like object. Features (genes,
-  transcripts, proteins, ...) are defined along the rows, and samples
-  along the columns.
+- **Um (ou mais) ensaio(s) ** contendo os dados ômicos quantitativos
+  (por exemplo os dados de expressão gênica), armazenados como um objeto do tipo matriz. Variáveis (como genes, transcritos gênicos, proteínas etc.) são definidas ao longo das linhas e amostras ao longo das colunas.
 
-- A **sample metadata** slot containing sample co-variates, stored as a
-  data frame. Rows from this table represent samples (rows match exactly the
-  columns of the expression data).
+- Um compartimento para **sample metadata** contém as co-variáveis da amostra, armazenada como `data. frame`. As linhas desta tabela representam amostras (as linhas correspondem exatamente às colunas
+  dos dados de expressão gênica).
 
-- A **feature metadata** slot containing feature co-variates, stored as
-  a data frame. The rows of this data frame match exactly the rows of the
-  expression data.
+- Um compartimento para **sample metadata** contém as co-variáveis da amostra, armazenada como `data.frame`. As linhas desta estrutura de dados correspondem exatamente às linhas dos dados da expressão.
 
-The coordinated nature of the `SummarizedExperiment` guarantees that
-during data manipulation, the dimensions of the different slots will
-always match (i.e the columns in the expression data and then rows in
-the sample metadata, as well as the rows in the expression data and
-feature metadata) during data manipulation. For example, if we had to
-exclude one sample from the assay, it would be automatically removed
-from the sample metadata in the same operation.
+A natureza coordenada do `SummarizedExperiment` garante que
+durante a manipulação dos dados, as dimensões dos diferentes compartimentos serão
+sempre correspondentes (por exemplo as colunas nos dados de expressão e, em seguida, as linhas nos metadados da amostra, bem como as linhas nos dados de expressão e
+metadados das variáveis) durante a manipulação dos dados. Por exemplo, se tivéssemos que
+excluir uma amostra do ensaio, esta seria automaticamente removida
+dos metadados da amostra na mesma operação.
 
-The metadata slots can grow additional co-variates
-(columns) without affecting the other structures.
+Os compartimentos de metadados podem aumentar as co-variáveis adicionais
+(colunas) sem afetar as outras estruturas.
 
-### Creating a SummarizedExperiment
+### Criando um SummarizedExperiment
 
-In order to create a `SummarizedExperiment`, we will create the
-individual components, i.e the count matrix, the sample and gene
-metadata from csv files. These are typically how RNA-Seq data are
-provided (after raw data have been processed).
+Para criar um `SummarizedExperiment`, vamos criar os
+componentes individuais, por exemplo a matriz de contagem, a amostra e os
+metadados dos genes de arquivos csv. Normalmente, é assim que os dados de RNA-Seq são
+fornecidos (depois dos dados brutos terem sido processados).
 
 ```{r, echo=FALSE, message=FALSE}
 rna <- read_csv("data/rnaseq.csv")
 
-## count matrix
+## matriz de contagem
 counts <- rna %>%
   select(gene, sample, expression) %>%
   pivot_wider(names_from = sample,
               values_from = expression)
 
-## convert to matrix and set row names
+## converter para matriz e definir nomes de linhas
 count_matrix <- counts %>% select(-gene) %>% as.matrix()
 rownames(count_matrix) <- counts$gene
 
-## sample annotation
+## anotação de amostras
 sample_metadata <- rna %>%
   select(sample, organism, age, sex, infection, strain, time, tissue, mouse)
 
-## remove redundancy
+## remover redundância
 sample_metadata <- unique(sample_metadata)
 
-## gene annotation
+## anotação de genes
 gene_metadata <- rna %>%
   select(gene, ENTREZID, product, ensembl_gene_id, external_synonym,
          chromosome_name, gene_biotype, phenotype_description,
          hsapiens_homolog_associated_gene_name)
 
-# remove redundancy
+# remover redundância
 gene_metadata <- unique(gene_metadata)
 
-## write to csv
+## salvar aquivo para csv
 write.csv(count_matrix, file = "data/count_matrix.csv")
 write.csv(gene_metadata, file = "data/gene_metadata.csv", row.names = FALSE)
 write.csv(sample_metadata, file = "data/sample_metadata.csv", row.names = FALSE)
 ```
 
-- **An expression matrix**: we load the count matrix, specifying that
-  the first columns contains row/gene names, and convert the
-  `data.frame` to a `matrix`. You can download it
-  [here](https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv).
+- **Uma matriz de expressão**: carregamos a matriz de contagem, especificando que
+  as primeiras colunas contêm nomes das linhas/genes, e convertemos o
+  `data.frame` para uma `matriz`. Você pode baixá-lo [aqui](https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv).
 
 ```{r}
 count_matrix <- read.csv("data/count_matrix.csv",
@@ -139,8 +124,8 @@ count_matrix[1:5, ]
 dim(count_matrix)
 ```
 
-- **A table describing the samples**, available
-  [here](https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv).
+- **Uma tabela que descreve as amostras**, disponível
+  [aqui](https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv).
 
 ```{r}
 sample_metadata <- read.csv("data/sample_metadata.csv")
@@ -157,27 +142,26 @@ gene_metadata[1:10, 1:4]
 dim(gene_metadata)
 ```
 
-We will create a `SummarizedExperiment` from these tables:
+Vamos criar um `SummarizedExperiment` a partir destas tabelas:
 
-- The count matrix that will be used as the **`assay`**
+- A matriz de contagem que será utilizada como **`ensaio`**
 
-- The table describing the samples will be used as the **sample
-  metadata** slot
+- A tabela que descreve as amostras será utilizada como compartimento para **sample
+  metadata**
 
-- The table describing the genes will be used as the **features
-  metadata** slot
+- A tabela que descreve os genes será utilizada como compartimento para **features (variáveis)
+  metadata**
 
-To do this we can put the different parts together using the
-`SummarizedExperiment` constructor:
+Para o fazer, podemos juntar as diferentes partes utilizando o construtor
+`SummarizedExperiment`:
 
 ```{r, message=FALSE, warning=FALSE}
 ## BiocManager::install("SummarizedExperiment")
 library("SummarizedExperiment")
 ```
 
-First, we make sure that the samples are in the same order in the
-count matrix and the sample annotation, and the same for the genes in
-the count matrix and the gene annotation.
+Primeiro, certificamo-nos de que as amostras estão na mesma ordem na matriz de contagem
+e na anotação da amostra, e o mesmo para os genes na matriz de contagem e na anotação dos genes.
 
 ```{r}
 stopifnot(rownames(count_matrix) == gene_metadata$gene)
@@ -191,20 +175,19 @@ se <- SummarizedExperiment(assays = list(counts = count_matrix),
 se
 ```
 
-### Saving data
+### Guardar dados
 
-Exporting data to a spreadsheet, as we did in a previous episode, has
-several limitations, such as those described in the first chapter
-(possible inconsistencies with `,` and `.` for decimal separators and
-lack of variable type definitions). Furthermore, exporting data to a
-spreadsheet is only relevant for rectangular data such as dataframes
-and matrices.
+A exportação dos dados para uma spreadsheet, como fizemos num episódio anterior, tem
+várias limitações, como as descritas no primeiro capítulo
+(possíveis inconsistências com `,` e `.` para separadores decimais e
+falta de definições de tipos de variáveis). Além disso, a exportação dos dados para uma spreadsheet
+só é relevante para dados retangulares, tais como data.frames
+e matrizes.
 
-A more general way to save data, that is specific to R and is
-guaranteed to work on any operating system, is to use the `saveRDS`
-function. Saving objects like this will generate a binary
-representation on disk (using the `rds` file extension here), which
-can be loaded back into R using the `readRDS` function.
+Uma forma mais geral de guardar dados, que é específica do R e é
+garantida para funcionar em qualquer sistema operativo, é utilizar a função `saveRDS`. Guardar objetos como este irá gerar uma representação binária
+no disco (usando a extensão de arquivo `rds` aqui), que
+pode ser carregada de volta para o R usando a função `readRDS`.
 
 ```{r, eval=FALSE}
 saveRDS(se, file = "data_output/se.rds")
@@ -213,41 +196,38 @@ se <- readRDS("data_output/se.rds")
 head(se)
 ```
 
-To conclude, when it comes to saving data from R that will be loaded
-again in R, saving and loading with `saveRDS` and `readRDS` is the
-preferred approach. If tabular data need to be shared with somebody
-that is not using R, then exporting to a text-based spreadsheet is a
-good alternative.
+Para concluir, quando se trata de salvar dados do R que serão carregados novamente no R, salvar e carregar com `saveRDS` e `readRDS` é a abordagem preferida. Se os dados tabulares tiverem de ser partilhados com alguém
+que não utilize o R, então a exportação para spreadsheet baseada em texto é uma
+boa alternativa.
 
-Using this data structure, we can access the expression matrix with
-the `assay` function:
+Utilizando esta estrutura de dados, podemos acessar a matriz de expressão com
+a função `assay`:
 
 ```{r}
 head(assay(se))
 dim(assay(se))
 ```
 
-We can access the sample metadata using the `colData` function:
+Podemos acessar aos metadados da amostra utilizando a função `colData`:
 
 ```{r}
 colData(se)
 dim(colData(se))
 ```
 
-We can also access the feature metadata using the `rowData` function:
+Também podemos aceder aos metadados da caraterística utilizando a função `rowData`:
 
 ```{r}
 head(rowData(se))
 dim(rowData(se))
 ```
 
-### Subsetting a SummarizedExperiment
+### Subconjunto de um SummarizedExperiment
 
-SummarizedExperiment can be subset just like with data frames, with
-numerics or with characters of logicals.
+SummarizedExperiment pode ser subconjunto tal como os data frames, com
+números ou com caracteres lógicos.
 
-Below, we create a new instance of class SummarizedExperiment that
-contains only the 5 first features for the 3 first samples.
+Abaixo, criamos uma nova instância da classe SummarizedExperiment que contém apenas as 5 primeiras variáveis para as 3 primeiras amostras.
 
 ```{r}
 se1 <- se[1:5, 1:3]
@@ -259,9 +239,8 @@ colData(se1)
 rowData(se1)
 ```
 
-We can also use the `colData()` function to subset on something from
-the sample metadata or the `rowData()` to subset on something from the
-feature metadata.  For example, here we keep only miRNAs and the non
+Também podemos utilizar a função `colData()` para fazer um subconjunto de algo dos metadados da amostra ou a função `rowData()` para fazer um subconjunto de algo dos metadados da caraterística
+.  For example, here we keep only miRNAs and the non
 infected samples:
 
 ```{r}
