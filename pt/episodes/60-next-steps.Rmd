@@ -1,36 +1,35 @@
 ---
 source: Rmd
-title: Next steps
-teaching: 45
-exercises: 45
+título: Próximas etapas
+ensinando: 45
+exercícios: 45
 ---
 
 ```{r, include=FALSE}
 ```
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::::::::::::::::::::::::::::::::::::: objetivos
 
-- Introduce the Bioconductor project.
-- Introduce the notion of data containers.
-- Give an overview of the `SummarizedExperiment`, extensively used in
-  omics analyses.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::: questions
-
-- What is a `SummarizedExperiment`?
-- What is Bioconductor?
+- Introduzir o projeto do Biocondutor.
+- Introduzir o conceito de contêineres de dados.
+- Apresentar uma visão geral do `SummarizedExperiment`, o qual é amplamente utilizado em análises ômicas.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Next steps
+:::::::::::::::::::::::::::::::::::::::: perguntas
+
+- O que é um `SummarizedExperiment`?
+- O que é o Bioconductor?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Próximos passos
 
 ```{r, echo=FALSE, message=FALSE}
 library("tidyverse")
 ```
 
-Data in bioinformatics is often complex.  To deal with this,
+Os dados em bioinformática são muitas vezes complexos.  To deal with this,
 developers define specialised data containers (termed classes) that
 match the properties of the data they need to handle.
 
