@@ -1,8 +1,8 @@
 ---
 source: Rmd
-título: Próximas etapas
-ensinando: 45
-exercícios: 45
+title: Próximas etapas
+teaching: 45
+exercises: 45
 ---
 
 ```{r, include=FALSE}
