@@ -133,7 +133,7 @@ sample_metadata
 dim(sample_metadata)
 ```
 
-- **A table describing the genes**, available
+- **Uma tabela que descreve os genes**, disponível
   [here](https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv).
 
 ```{r}
@@ -240,8 +240,8 @@ rowData(se1)
 ```
 
 Também podemos utilizar a função `colData()` para fazer um subconjunto de algo dos metadados da amostra ou a função `rowData()` para fazer um subconjunto de algo dos metadados da caraterística
-.  For example, here we keep only miRNAs and the non
-infected samples:
+.  Por exemplo, aqui mantemos apenas os miRNAs e as amostras não infectadas
+:
 
 ```{r}
 se1 <- se[rowData(se)$gene_biotype == "miRNA",
@@ -252,9 +252,9 @@ colData(se1)
 rowData(se1)
 ```
 
-<!--For the following exercise, you should download the SE.rda object
-(that contains the `se` object), and open the file using the 'load()'
-function.-->
+<!--Para o exercício a seguir, você deve fazer download do objeto SE.rda
+(que contém o objeto `se`) e abrir o arquivo usando a função 'load()'
+função.-->
 
 <!-- ```{r, eval = FALSE, echo = FALSE} -->
 
@@ -266,21 +266,21 @@ function.-->
 
 <!-- ``` -->
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge
 
-Extract the gene expression levels of the 3 first genes in samples
-at time 0 and at time 8.
+Extraia os níveis de expressão genética dos 3 primeiros genes nas amostras
+no tempo 0 e no tempo 8.
 
-:::::::::::::::  solution
+::::::::::::::: Resposta
 
-## Solution
+## Resposta
 
 ```{r, purl=FALSE}
 assay(se)[1:3, colData(se)$time != 4]
 
-# Equivalent to
+# Equivalente a
 assay(se)[1:3, colData(se)$time == 0 | colData(se)$time == 8]
 ```
 
@@ -288,15 +288,15 @@ assay(se)[1:3, colData(se)$time == 0 | colData(se)$time == 8]
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: Desafio
 
-## Challenge
+## Desafio
 
-Verify that you get the same values using the long `rna` table.
+Verifique se obtém os mesmos valores utilizando a tabela `rna` longa.
 
-:::::::::::::::  solution
+::::::::::::::: Resposta
 
-## Solution
+## Resposta
 
 ```{r, purl=FALSE}
 rna |>
@@ -308,40 +308,40 @@ rna |>
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The long table and the `SummarizedExperiment` contain the same
-information, but are simply structured differently. Each approach has its
-own advantages: the former is a good fit for the `tidyverse` packages,
-while the latter is the preferred structure for many bioinformatics and
-statistical processing steps. For example, a typical RNA-Seq analyses using
-the `DESeq2` package.
+A tabela longa e o `SummarizedExperiment` contêm as mesmas informações
+, mas são simplesmente estruturados de forma diferente. Cada abordagem tem as suas
+próprias vantagens: a primeira adequa-se bem aos pacotes `tidyverse`,
+enquanto a segunda é a estrutura preferida para muitas etapas de processamento bioinformático e
+estatístico. Por exemplo, uma análise típica de RNA-Seq utilizando
+o pacote `DESeq2`.
 
-#### Adding variables to metadata
+#### Adicionar variáveis aos metadados
 
-We can also add information to the metadata.
-Suppose that you want to add the center where the samples were collected...
+Também podemos adicionar informações aos metadados.
+Suponhamos que se pretende acrescentar o local onde as amostras foram recolhidas...
 
 ```{r}
 colData(se)$center <- rep("University of Illinois", nrow(colData(se)))
 colData(se)
 ```
 
-This illustrates that the metadata slots can grow indefinitely without
-affecting the other structures!
+Isto ilustra que as ranhuras de metadados podem crescer indefinidamente sem
+afetar as outras estruturas!
 
 ### tidySummarizedExperiment
 
-You may be wondering, can we use tidyverse commands to interact with
-`SummarizedExperiment` objects? The answer is yes, we can with the
-`tidySummarizedExperiment` package.
+Você deve estar se perguntando, podemos usar comandos tidyverse para interagir com objectos
+`SummarizedExperiment`? A resposta é sim, podemos fazê-lo com o pacote
+`tidySummarizedExperiment`.
 
-Remember what our SummarizedExperiment object looks like:
+Lembre-se do aspeto do nosso objeto SummarizedExperiment:
 
 ```{r, message=FALSE}
 se
 ```
 
-Load `tidySummarizedExperiment` and then take a look at the se object
-again.
+Carregue `tidySummarizedExperiment` e depois dê uma olhada no objeto `se`
+novamente.
 
 ```{r, message=FALSE}
 #BiocManager::install("tidySummarizedExperiment")
@@ -350,32 +350,30 @@ library("tidySummarizedExperiment")
 se
 ```
 
-It's still a `SummarizedExperiment` object, so maintains the efficient
-structure, but now we can view it as a tibble. Note the first line of
-the output says this, it's a `SummarizedExperiment`\-`tibble`
-abstraction. We can also see in the second line of the output the
-number of transcripts and samples.
+Continua a ser um objeto `SummarizedExperiment`, por isso mantém a estrutura eficiente, mas agora podemos vê-lo como um tibble. Repare que na primeira linha do output diz isto: 
+`SummarizedExperiment`\-`tibble`
+abstraction. Também podemos ver na segunda linha do output o
+número de transcrições e amostras.
 
-If we want to revert to the standard `SummarizedExperiment` view, we
-can do that.
+Se quisermos, podemos reverter para a visualização padrão do `SummarizedExperiment`.
 
 ```{r}
 options("restore_SummarizedExperiment_show" = TRUE)
 se
 ```
 
-But here we use the tibble view.
+Mas aqui utilizamos a visualização do tibble.
 
 ```{r}
 options("restore_SummarizedExperiment_show" = FALSE)
 se
 ```
 
-We can now use tidyverse commands to interact with the
-`SummarizedExperiment` object.
+Agora podemos usar comandos do tidyverse para interagir com o objeto
+`SummarizedExperiment`.
 
-We can use `filter` to filter for rows using a condition e.g. to view
-all rows for one sample.
+Podemos utilizar `filter` para filtrar as linhas utilizando uma condição, por exemplo, para visualizar
+todas as linhas de uma amostra.
 
 ```{r}
 se %>% filter(.sample == "GSM2545336")
