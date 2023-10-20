@@ -379,21 +379,19 @@ todas as linhas de uma amostra.
 se %>% filter(.sample == "GSM2545336")
 ```
 
-We can use `select` to specify columns we want to view.
+Podemos utilizar `select` para especificar as colunas que pretendemos visualizar.
 
 ```{r}
 se %>% select(.sample)
 ```
 
-We can use `mutate` to add metadata info.
+Podemos utilizar `mutate` para adicionar informações dos metadados.
 
 ```{r}
-se %>% mutate(center = "Heidelberg University")
+se %>%% mutate(center = "Heidelberg University")
 ```
 
-We can also combine commands with the tidyverse pipe `%>%`. For
-example, we could combine `group_by` and `summarise` to get the total
-counts for each sample.
+Também podemos combinar comandos com o pipe do tidyverse `%>%`. Por exemplo, poderíamos combinar `group_by` e `summarise` para obter o total de contagens para cada amostra.
 
 ```{r}
 se %>%
@@ -401,10 +399,9 @@ se %>%
     summarise(total_counts=sum(counts))
 ```
 
-We can treat the tidy SummarizedExperiment object as a normal tibble
-for plotting.
+Podemos tratar o objeto SummarizedExperiment como um `tibble` comum para plotagem.
 
-Here we plot the distribution of counts per sample.
+Aqui traçamos a distribuição das contagens por amostra.
 
 ```{r tidySE-plot}
 se %>%
@@ -414,8 +411,7 @@ se %>%
     theme_bw()
 ```
 
-For more information on tidySummarizedExperiment, see the package
-website
+Para mais informações sobre o tidySummarizedExperiment, consulte o website do pacote
 [here](https://stemangiola.github.io/tidySummarizedExperiment/).
 
 **Take-home message**
