@@ -414,23 +414,21 @@ se %>%
 Para mais informações sobre o tidySummarizedExperiment, consulte o website do pacote
 [here](https://stemangiola.github.io/tidySummarizedExperiment/).
 
-**Take-home message**
+**Mensagem para levar para casa**
 
-- `SummarizedExperiment` represents an efficient way to store and
-  handle omics data.
+- O `SummarizedExperiment` representa uma forma eficiente de armazenar e
+  tratar dados ômicos.
 
-- They are used in many Bioconductor packages.
+- São utilizados em muitos pacotes do Bioconductor.
 
-If you follow the next training focused on RNA sequencing analysis,
-you will learn to use the Bioconductor `DESeq2` package to do some
-differential expression analyses.  The whole analysis of the `DESeq2`
-package is handled in a `SummarizedExperiment`.
+Se seguir a próxima formação centrada na análise de sequências de RNA, aprenderá a utilizar o pacote Bioconductor `DESeq2` para efetuar algumas análises de expressão diferencial.  Toda a análise do pacote `DESeq2`
+é tratada num `SummarizedExperiment`.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Bioconductor is a project provide support and packages for the
-  comprehension of high high-throughput biology data.
-- A `SummarizedExperiment` is a type of object useful to store and
-  manage high-throughput omics data.
+- O Bioconductor é um projeto que fornece apoio e pacotes para a
+  compreensão de dados biológicos de elevado rendimento.
+- Um `SummarizedExperiment` é um tipo de objeto útil para armazenar e
+  gerir dados ómicos de elevado rendimento.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
