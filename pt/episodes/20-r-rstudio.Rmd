@@ -36,92 +36,85 @@ escrever os seus scripts R mas também de interagir com o software R
 [^plainr]: Ao invés de usar R diretamente do console. Existem outros softwares que fazem a interface e integram
 com o R, mas o RStudio é particularmente adequado para principiantes, ao mesmo tempo que oferece funcionalidades muito avançadas.
 
-The [RStudio IDE Cheat
+O [RStudio IDE Cheat
 Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
-provides much more information than will be covered here, but can be
-useful to learn keyboard shortcuts and discover new features.
+fornece muito mais informações do que serão abordadas aqui, mas pode ser
+útil para aprender atalhos de teclado e descobrir novos recursos.
 
-## Why learn R?
+## Por que aprender R?
 
-### R does not involve lots of pointing and clicking, and that's a good thing
+### R não envolve muitos cliques, e isso é bom
 
-The learning curve might be steeper than with other software, but with
-R, the results of your analysis do not rely on remembering a
-succession of pointing and clicking, but instead on a series of
-written commands, and that's a good thing! So, if you want to redo
-your analysis because you collected more data, you don't have to
-remember which button you clicked in which order to obtain your
-results; you just have to run your script again.
+A curva de aprendizagem pode ser mais acentuada do que com outros softwares, mas com
+R, os resultados da sua análise não dependem de se lembrar de uma
+sucessão de cliques, mas sim de uma série de
+comandos escritos e salvos, o que é bom! Assim, se quiser refazer
+a sua análise porque obteve mais dados, não tem de se
+lembrar em que botão clicou em qual ordem para obter os
+resultados; basta executar novamente o script.
 
-Working with scripts makes the steps you used in your analysis clear,
-and the code you write can be inspected by someone else who can give
-you feedback and spot mistakes.
+Trabalhar com scripts torna os passos utilizados na sua análise claros,
+e o código que escreve pode ser inspecionado por outra pessoa que pode te dar
+feedback e detectar erros.
 
-Working with scripts forces you to have a deeper understanding of what
-you are doing, and facilitates your learning and comprehension of the
-methods you use.
+Trabalhar com scrpts te obriga a ter uma compreensão mais profunda do que
+está fazendo e facilita a sua aprendizagem e compreensão dos métodos utilizados.
 
-### R code is great for reproducibility
+### O código em R é ótimo para a reprodutibilidade
 
-Reproducibility means that someone else (including your future self) can
-obtain the same results from the same dataset when using the same
-analysis code.
+Reprodutibilidade significa que outra pessoa (incluindo o seu futuro eu) pode
+obter os mesmos resultados do mesmo conjunto de dados ao utilizar o mesmo código de análise.
 
-R integrates with other tools to generate manuscripts or reports from your
-code. If you collect more data, or fix a mistake in your dataset, the
-figures and the statistical tests in your manuscript or report are updated
-automatically.
+O R se integra com outras ferramentas para gerar manuscritos ou relatórios a partir do seu código. Se recolher mais dados ou corrigir um erro no seu conjunto de dados, as figuras
+e os testes estatísticos no seu manuscrito ou relatório serão atualizados
+automaticamente.
 
-An increasing number of journals and funding agencies expect analyses
-to be reproducible, so knowing R will give you an edge with these
-requirements.
+Um número crescente de revistas e agências de financiamento espera que as análises
+sejam reprodutíveis, então o conhecimento de R te dará uma vantagem em relação a estes requisitos.
 
-### R is interdisciplinary and extensible
+### O R é interdisciplinar e extensível
 
-With 10000+ packages[^whatarepkgs] that can be installed to extend its
-capabilities, R provides a framework that allows you to combine
-statistical approaches from many scientific disciplines to best suit
-the analytical framework you need to analyse your data. For instance,
-R has packages for image analysis, GIS, time series, population
-genetics, and a lot more.
+Com mais de 10000 pacotes [^whatarepkgs] que podem ser instalados para expandir as suas
+capacidades, o R fornece uma estrutura que te permite combinar
+abordagens estatísticas de muitas disciplinas científicas para melhor se adequar
+à estrutura analítica que necessita para analisar os seus dados. Por exemplo, o
+R tem pacotes para análise de imagens, GIS, séries temporais,
+genética de populações e muito mais.
 
-[^whatarepkgs]: i.e. add-ons that confer R with new functionality,
-such as bioinformatics data analysis.
+[^whatarepkgs]: ou seja, complementos que conferem ao R novas funcionalidades,
+como a análise de dados de bioinformática.
 
-```{r, fig.cap="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo=FALSE, message=FALSE}
+```{r, fig.cap="Aumento exponencial do número de pacotes disponíveis em [CRAN](https://cran.r-project.org/), em inglês, a Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo=FALSE, message=FALSE}
 knitr::include_graphics("fig/cran.png")
 ```
 
-### R works on data of all shapes and sizes
+### R funciona com dados de todas as formas e tamanhos
 
-The skills you learn with R scale easily with the size of your
-dataset. Whether your dataset has hundreds or millions of lines, it
-won't make much difference to you.
+As skills que você aprende com R escalam facilmente com o tamanho do seu conjunto de dados. Mesmo que o seu conjunto de dados tenha centenas ou milhões de linhas,
+não fará muita diferença para o R.
 
-R is designed for data analysis. It comes with special data structures
-and data types that make handling of missing data and statistical
-factors convenient.
+O R foi concebido para a análise de dados. Ele inclui estruturas de dados especiais
+e tipos de dados que o tornam conveniente para o tratamento de dados em falta e de fatores estatísticos.
 
-R can connect to spreadsheets, databases, and many other data formats,
-on your computer or on the web.
+O R pode ligar-se a planilhas, bases de dados e muitos outros formatos de dados,
+no seu computador ou na Web.
 
-### R produces high-quality graphics
+### R produz gráficos de alta qualidade
 
-The plotting functionalities in R are extensive, and allow you to adjust
-any aspect of your graph to convey most effectively the message from
-your data.
+As funcionalidades de plotagem em R são extensas e o permitem ajustar
+qualquer aspecto do seu gráfico para transmitir de forma mais eficaz a mensagem dos
+seus dados.
 
-### R has a large and welcoming community
+### O R tem uma comunidade grande e acolhedora
 
-Thousands of people use R daily. Many of them are willing to help you
-through mailing lists and websites such as [Stack
-Overflow](https://stackoverflow.com/), or on the [RStudio
-community](https://community.rstudio.com/). These broad user communities
-extend to specialised areas such as bioinformatics. One such subset of the R community is [Bioconductor](https://bioconductor.org/), a scientific project for analysis and comprehension "of data from current and emerging biological assays." This workshop was developed by members of the Bioconductor community; for more information on Bioconductor, please see the companion workshop ["The Bioconductor Project"](https://carpentries-incubator.github.io/bioc-project/).
+Milhares de pessoas usam o R diariamente. Muitos deles estão dispostos a ajudá-lo
+através de listas de email e sites como [Stack
+Overflow](https://stackoverflow.com/), ou na [comunidade RStudio](https://community.rstudio.com/). Essas amplas comunidades de usuários
+se estendem a áreas especializadas como a bioinformática. Um desses subconjuntos da comunidade R é o [Bioconductor](https://bioconductor.org/), um projeto científico para análise e compreensão "de dados biológicos atuais e emergentes Esta oficina foi desenvolvida por membros da comunidade Biocondutor; para mais informações sobre Bioconductor, por favor veja a oficina complementar ["O Projeto Biocondutor"](https://carpentries-incubator.github.io/bioc-project/).
 
-### Not only is R free, but it is also open-source and cross-platform
+### Não apenas R gratuito, mas também é de código aberto e multi-plataforma
 
-Anyone can inspect the source code to see how R works. Because of this
+Qualquer um pode inspecionar o código-fonte para ver como o R funciona. Because of this
 transparency, there is less chance for mistakes, and if you (or
 someone else) find some, you can report and fix bugs.
 
