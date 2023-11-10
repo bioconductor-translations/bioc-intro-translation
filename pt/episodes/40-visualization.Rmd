@@ -11,19 +11,19 @@ download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor
               destfile = "data/rnaseq.csv")
 ```
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::::::::::::::::::::::::::::::::::::::: objetivos
 
-- Produce scatter plots, boxplots, line plots, etc. using ggplot.
-- Set universal plot settings.
-- Describe what faceting is and apply faceting in ggplot.
-- Modify the aesthetics of an existing ggplot plot (including axis labels and color).
-- Build complex and customized plots from data in a data frame.
+- Produzir gráficos de dispersão, boxplots, gráficos de linhas, etc. utilizando ggplot.
+- Definir configurações do plot universal.
+- Descrever o que é faceting e aplicar faceting no ggplot.
+- Modifique a estética de um gráfico do ggplot (incluindo rótulos e cores dos eixos).
+- Construir gráficos complexos e personalizados a partir de dados num data.frame.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+:::::::::::::::::::::::::::::::::::::::: questões
 
-- Visualization in R
+- Visualização em R
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -31,87 +31,84 @@ download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor
 rna <- read.csv("data/rnaseq.csv")
 ```
 
-## Data Visualization
+## Visualização de dados
 
-We start by loading the required packages. **`ggplot2`** is included in
-the **`tidyverse`** package.
+Começamos por carregar os pacotes necessários. **`ggplot2`** está incluído no pacote **`tidyverse`**.
 
 ```{r load-package, message=FALSE, purl=TRUE}
 library("tidyverse")
 ```
 
-If not still in the workspace, load the data we saved in the previous
-lesson.
+Se ainda não estiver no espaço de trabalho, carregue os dados que guardámos na lição
+anterior.
 
 ```{r load-data, eval=FALSE, purl=TRUE}
 rna <- read.csv("data/rnaseq.csv")
 ```
 
-The [Data Visualization Cheat
+O [Data Visualization Cheat
 Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
-will cover the basics and more advanced features of `ggplot2` and will
-help, in addition to serve as a reminder, getting an overview of the
-many data representations available in the package. The following video
-tutorials ([part 1](https://www.youtube.com/watch?v=h29g21z0a68) and
-[2](https://www.youtube.com/watch?v=0m4yywqNPVY)) by Thomas Lin Pedersen
-are also very instructive.
+cobrirá o básico e as características mais avançadas do `ggplot2` e
+ajudará, além de servir como um lembrete, a obter uma visão geral das
+muitas representações de dados disponíveis no pacote. Os seguintes tutoriais em vídeo
+([parte 1](https://www.youtube.com/watch?v=h29g21z0a68) e
+[2](https://www.youtube.com/watch?v=0m4yywqNPVY)) de Thomas Lin Pedersen
+são também muito instrutivos.
 
-## Plotting with `ggplot2`
+## Plotando com `ggplot2`
 
-`ggplot2` is a plotting package that makes it simple to create complex
-plots from data in a data frame. It provides a more programmatic
-interface for specifying what variables to plot, how they are displayed,
-and general visual properties. The theoretical foundation that supports
-the `ggplot2` is the *Grammar of Graphics* (@Wilkinson:2005). Using this
-approach, we only need minimal changes if the underlying data change or
-if we decide to change from a bar plot to a scatterplot. This helps in
-creating publication quality plots with minimal amounts of adjustments
-and tweaking.
+`ggplot2` é um pacote de plotagem que torna simples a criação de gráficos complexos
+a partir de dados em um quadro de dados. Fornece uma interface
+mais programática para especificar quais as variáveis a representar, como são apresentadas,
+e propriedades visuais gerais. A base teórica que suporta
+o `ggplot2` é a *Gramática de Gráficos* (@Wilkinson:2005). Utilizando esta abordagem, apenas necessitamos de alterações mínimas se os dados subjacentes mudarem ou
+se decidirmos mudar de um gráfico de barras para um gráfico de dispersão. Isto ajuda a
+criar gráficos com qualidade de publicação com o mínimo de ajustes
+e afinações.
 
-There is a book about `ggplot2` (@ggplot2book) that provides a good
-overview, but it is outdated. The 3rd edition is in preparation and will
-be [freely available online](https://ggplot2-book.org/). The `ggplot2`
-webpage ([https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)) provides ample documentation.
+Existe um livro sobre `ggplot2` (@ggplot2book) que fornece uma boa visão geral, mas está desatualizado. A 3ª edição está a ser preparada e será
+[disponível gratuitamente online] (https://ggplot2-book.org/). A página `ggplot2`
+([https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)) fornece uma ampla documentação.
 
-`ggplot2` functions like data in the 'long' format, i.e., a column for
-every dimension, and a row for every observation. Well-structured data
-will save you lots of time when making figures with `ggplot2`.
+O `ggplot2` funciona como dados no formato 'long', ou seja, uma coluna para
+cada dimensão, e uma linha para cada observação. Dados bem estruturados
+poupará muito tempo ao fazer figuras com `ggplot2`.
 
-ggplot graphics are built step by step by adding new elements. Adding
-layers in this fashion allows for extensive flexibility and
-customization of plots.
+os gráficos ggplot são construídos passo a passo através da adição de novos elementos. A adição de
+camadas desta forma permite uma grande flexibilidade e
+personalização das parcelas.
 
-> The idea behind the Grammar of Graphics it is that you can build every
-> graph from the same 3 components: (1) a data set, (2) a coordinate system,
-> and (3) geoms — i.e. visual marks that represent data points [^three\_comp\_ggplot2]
+> A ideia por detrás da Gramática de Gráficos é que pode construir todos os gráficos
+> a partir dos mesmos 3 componentes: (1) um conjunto de dados, (2) um sistema de coordenadas,
+> e (3) geoms - ou seja, marcas visuais que representam pontos de dados [^three\_comp\_ggplot2]
 
-[^three\_comp\_ggplot2]: Source: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
+[^three\_comp\_ggplot2]: Fonte: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
-To build a ggplot, we will use the following basic template that can be
-used for different types of plots:
+Para construir um ggplot, vamos utilizar o seguinte modelo básico que pode ser
+utilizado para diferentes tipos de gráficos:
 
 ```
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
 ```
 
-- use the `ggplot()` function and bind the plot to a specific **data
-  frame** using the `data` argument
+- use a função `ggplot()` e associe o gráfico a um **quadro de dados
+  específico** usando o argumento `data`
 
 ```{r, eval=FALSE}
 ggplot(data = rna)
 ```
 
-- define a **mapping** (using the aesthetic (`aes`) function), by
-  selecting the variables to be plotted and specifying how to present
-  them in the graph, e.g. as x/y positions or characteristics such as
-  size, shape, color, etc.
+- defina um **mapeamento** (usando a função estética (`aes`)),
+  seleccionando as variáveis a serem representadas e especificando como
+  apresentá-las no gráfico, e.por exemplo, como posições x/y ou características como
+  tamanho, forma, cor, etc.
 
 ```{r, eval=FALSE}
 ggplot(data = rna, mapping = aes(x = expression))
 ```
 
-- add '**geoms**' - geometries, or graphical representations of the
-  data in the plot (points, lines, bars). `ggplot2` offers many
+- adicionar '**geoms**' - geometrias, ou representações gráficas dos
+  dados no gráfico (pontos, linhas, barras). `ggplot2` offers many
   different geoms; we will use some common ones today, including:
 
   ```
